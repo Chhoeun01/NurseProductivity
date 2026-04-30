@@ -163,85 +163,22 @@ tr:hover td{background:#FAFAFA}
   opacity:0;transform:translateY(8px);transition:.25s;pointer-events:none}
 #toast.show{opacity:1;transform:none}
 ::-webkit-scrollbar{width:5px}::-webkit-scrollbar-thumb{background:#BDBDBD;border-radius:3px}
-
-/* PRINT BUTTON */
-.pbtn{display:flex;align-items:center;gap:6px;padding:8px 16px;background:var(--surf);
-  border:1.5px solid var(--bdr);border-radius:9px;font-family:'DM Sans',sans-serif;
-  font-size:13px;font-weight:600;color:var(--tx);cursor:pointer;transition:.15s;white-space:nowrap}
-.pbtn:hover{background:var(--tdark);color:#fff;border-color:var(--tdark)}
-.pbtn svg{flex-shrink:0}
-
-/* PRINT MEDIA */
-@media print {
-  * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
-  #lock, .sidebar, .topbar, #toast, .modal, .pbtn { display: none !important; }
-  body { background: #fff !important; margin: 0; }
-  .main { margin-left: 0 !important; }
-  .page { display: block !important; padding: 10px 16px; }
-  .page:not(.active) { display: none !important; }
-
-  /* Print header */
-  .print-header {
-    display: flex !important;
-    align-items: center;
-    justify-content: space-between;
-    padding: 12px 0 10px;
-    border-bottom: 2px solid #00695C;
-    margin-bottom: 16px;
-  }
-  .print-header-left h1 { font-family: 'Syne', sans-serif; font-size: 18px; font-weight: 800; color: #00695C; margin: 0; }
-  .print-header-left p  { font-size: 11px; color: #546E7A; margin: 2px 0 0; }
-  .print-header-right   { font-size: 11px; color: #546E7A; text-align: right; }
-
-  /* KPI cards — 4 across, compact */
-  .kg { grid-template-columns: repeat(4,1fr) !important; gap: 8px !important; margin-bottom: 12px !important; }
-  .kc { padding: 12px 14px !important; break-inside: avoid; border: 1px solid #E0E0E0 !important; }
-  .kv { font-size: 22px !important; }
-
-  /* Signal bar */
-  .sigbar { padding: 12px 14px !important; margin-bottom: 12px !important; break-inside: avoid; }
-  .sg { grid-template-columns: repeat(7, 1fr) !important; gap: 6px !important; }
-  .sc { padding: 8px 4px !important; }
-  .scv { font-size: 16px !important; }
-
-  /* Charts grid — side by side */
-  .cg2 { grid-template-columns: 1fr 1fr !important; gap: 10px !important; }
-  .cg3 { grid-template-columns: repeat(3,1fr) !important; gap: 10px !important; }
-  .cc  { padding: 12px 14px !important; break-inside: avoid; margin-bottom: 10px !important; }
-  .cw.h300 { height: 200px !important; }
-  .cw.h280 { height: 180px !important; }
-  .cw.h320 { height: 200px !important; }
-  .cw.h240 { height: 160px !important; }
-  .cw.h180 { height: 140px !important; }
-
-  /* Tables */
-  .tc  { break-inside: avoid; }
-  table { font-size: 11px; }
-  th, td { padding: 6px 8px !important; }
-
-  /* Reco grid */
-  .rg { grid-template-columns: repeat(4,1fr) !important; }
-  .rc { break-inside: avoid; }
-
-  /* Admin / data pages — hide from print */
-  #pg-data, #pg-admin { display: none !important; }
-
-  @page {
-    size: A4 landscape;
-    margin: 12mm 10mm;
-  }
-}
-
-/* Print header hidden on screen */
-.print-header { display: none; }
-
-/* LOGOUT BUTTON */
-.logoutBtn{display:flex;align-items:center;gap:6px;width:calc(100% - 28px);margin:0 14px 14px;
-  padding:9px 14px;border:1.5px solid rgba(255,255,255,.2);border-radius:9px;
-  background:transparent;color:rgba(255,255,255,.6);font-family:'DM Sans',sans-serif;
-  font-size:13px;font-weight:600;cursor:pointer;transition:.15s;text-align:left}
+.sync-btn{display:flex;align-items:center;gap:6px;padding:8px 16px;background:#0F9D58;border:none;border-radius:9px;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;color:#fff;cursor:pointer;transition:.15s;white-space:nowrap}
+.sync-btn:hover{background:#0B8043}
+.sync-btn.syncing{background:#F9A825;color:#1A1A2E;cursor:not-allowed}
+.sync-btn.done{background:var(--green)}
+#syncStatus{font-size:12px;color:var(--tx3);margin-top:4px}
+.logoutBtn{display:flex;align-items:center;gap:6px;width:calc(100% - 28px);margin:0 14px 14px;padding:9px 14px;border:1.5px solid rgba(255,255,255,.2);border-radius:9px;background:transparent;color:rgba(255,255,255,.6);font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;cursor:pointer;transition:.15s;text-align:left}
 .logoutBtn:hover{background:rgba(229,57,53,.25);border-color:rgba(229,57,53,.5);color:#FF8A80}
-.logoutBtn svg{flex-shrink:0}
+@media print{#lock,.sidebar,.topbar,#toast,.modal,.pbtn,.logoutBtn{display:none!important}body{background:#fff!important;margin:0}.main{margin-left:0!important}.page{display:block!important;padding:10px 16px}.page:not(.active){display:none!important}.print-header{display:flex!important;align-items:center;justify-content:space-between;padding:12px 0 10px;border-bottom:2px solid #00695C;margin-bottom:16px}.print-header-left h1{font-size:18px;font-weight:800;color:#00695C;margin:0}.print-header-right{font-size:11px;color:#546E7A;text-align:right}.kg{grid-template-columns:repeat(4,1fr)!important;gap:8px!important}.cg2{grid-template-columns:1fr 1fr!important}.cg3{grid-template-columns:repeat(3,1fr)!important}.cc{break-inside:avoid;padding:12px 14px!important}.cw.h300,.cw.h320{height:200px!important}.cw.h240{height:160px!important}.cw.h180{height:140px!important}@page{size:A4 landscape;margin:12mm 10mm}}
+.print-header{display:none}
+.pbtn{display:flex;align-items:center;gap:6px;padding:8px 16px;background:var(--surf);border:1.5px solid var(--bdr);border-radius:9px;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;color:var(--tx);cursor:pointer;transition:.15s;white-space:nowrap}
+.pbtn:hover{background:var(--tdark);color:#fff;border-color:var(--tdark)}
+.modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:8000;align-items:center;justify-content:center}
+.modal.open{display:flex}
+.mbox{background:#fff;border-radius:16px;padding:28px;max-width:460px;width:90%;max-height:88vh;overflow-y:auto;box-shadow:0 20px 50px rgba(0,0,0,.22)}
+.mh{font-family:'Syne',sans-serif;font-size:17px;font-weight:800;margin-bottom:3px}
+.ms{font-size:12px;color:var(--tx3);margin-bottom:20px}
 </style>
 </head>
 <body>
@@ -273,25 +210,20 @@ tr:hover td{background:#FAFAFA}
       <div class="ni" id="ni-npt" onclick="nav('npt',this)"><span class="ico">⏱</span>GrandNPT Analysis</div>
       <div class="ni" id="ni-staffing" onclick="nav('staffing',this)"><span class="ico">👥</span>Staffing Signal</div>
       <div class="ni" id="ni-trend" onclick="nav('trend',this)"><span class="ico">📈</span>Trend Report</div>
-      <div class="ni" id="ni-calc" onclick="nav('calc',this)"><span class="ico">🧮</span>Staffing Calculator</div>
-      <div class="ni" id="ni-ref" onclick="nav('ref',this)"><span class="ico">📚</span>Reference</div>
+      <div class="ni" id="ni-calc" style="display:none" onclick="nav('calc',this)"><span class="ico">🧮</span>Staffing Calculator</div>
+      <div class="ni" id="ni-ref" style="display:none" onclick="nav('ref',this)"><span class="ico">📚</span>Reference</div>
       <div class="nsec" id="mgmtSec" style="display:none">MANAGEMENT</div>
       <div class="ni" id="ni-data" style="display:none" onclick="nav('data',this)"><span class="ico">🗂</span>Daily Data Entry</div>
       <div class="ni" id="ni-admin" style="display:none" onclick="nav('admin',this)"><span class="ico">⚙️</span>Admin Panel</div>
     </nav>
     <div class="sfoot" style="padding:0">
       <button class="logoutBtn" onclick="doLogout()">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
-          <polyline points="16 17 21 12 16 7"></polyline>
-          <line x1="21" y1="12" x2="9" y2="12"></line>
-        </svg>
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
         Logout
       </button>
       <div style="padding:0 14px 14px;font-size:11px;color:rgba(255,255,255,.3);text-align:center">
-        v3.0 — MCH © 2026<br>
-        <span id="sessionBadge" style="color:rgba(255,255,255,.5)">👤 Staff</span>
-      </div>
+      v3.0 — MCH © 2026
+      <span id="sessionBadge" style="color:rgba(255,255,255,.5)">👤 Staff</span>
     </div>
   </aside>
 
@@ -309,12 +241,12 @@ tr:hover td{background:#FAFAFA}
         <option value="Oct">October</option><option value="Nov">November</option><option value="Dec">December</option>
       </select>
       <select class="fsel" id="fDept" onchange="refresh()"><option value="all">All Departments</option></select>
-      <button class="pbtn" onclick="doPrint()" title="Print current page">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <polyline points="6 9 6 2 18 2 18 9"></polyline>
-          <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
-          <rect x="6" y="14" width="12" height="8"></rect>
-        </svg>
+      <button class="sync-btn" id="syncBtn" onclick="syncToSheets()">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><polyline points="23 20 23 14 17 14"/><path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4-4.64 4.36A9 9 0 0 1 3.51 15"/></svg>
+        Sync to Sheets
+      </button>
+      <button class="pbtn" onclick="doPrint()">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
         Print
       </button>
       <div class="badge">LIVE</div>
@@ -322,16 +254,6 @@ tr:hover td{background:#FAFAFA}
 
     <!-- DASHBOARD -->
     <div class="page active" id="pg-dashboard">
-    <div class="print-header">
-      <div class="print-header-left">
-        <h1>Maxicare Children Hospital</h1>
-        <p>Nurse Productivity Management System — Dashboard Overview</p>
-      </div>
-      <div class="print-header-right">
-        <div id="phDate_pg-dashboard" style="font-weight:700;color:#00695C"></div>
-        <div id="phFilter_pg-dashboard"></div>
-      </div>
-    </div>
       <div class="kg">
         <div class="kc t"><div class="kl">TOTAL CASES</div><div class="kv" id="kCases">—</div><div class="ks">Visits / PTH-ORH</div><div class="kt ok" id="kCasesT">—</div></div>
         <div class="kc g"><div class="kl">AVG GRANDNPT</div><div class="kv" id="kNPT">—</div><div class="ks">hrs per case</div><div class="kt ok" id="kNPTT">—</div></div>
@@ -356,16 +278,6 @@ tr:hover td{background:#FAFAFA}
 
     <!-- NPT PAGE -->
     <div class="page" id="pg-npt">
-    <div class="print-header">
-      <div class="print-header-left">
-        <h1>Maxicare Children Hospital</h1>
-        <p>Nurse Productivity Management System — GrandNPT Analysis</p>
-      </div>
-      <div class="print-header-right">
-        <div id="phDate_pg-npt" style="font-weight:700;color:#00695C"></div>
-        <div id="phFilter_pg-npt"></div>
-      </div>
-    </div>
       <div class="cc"><div class="ct">GrandNPT Daily Detail (hrs/case)</div><div class="cst">Above KPI line = overstaffed · Below = understaffed · Gold = 7-day moving avg</div><div class="cw h320"><canvas id="chND"></canvas></div></div>
       <div class="tc"><div class="tt">Daily NPT Log</div>
         <table><thead><tr><th>DATE</th><th>DEPT</th><th>CASES</th><th>HOURS</th><th>GRANDNPT</th><th>KPI</th><th>STATUS</th></tr></thead>
@@ -375,16 +287,6 @@ tr:hover td{background:#FAFAFA}
 
     <!-- STAFFING PAGE -->
     <div class="page" id="pg-staffing">
-    <div class="print-header">
-      <div class="print-header-left">
-        <h1>Maxicare Children Hospital</h1>
-        <p>Nurse Productivity Management System — Staffing Signal Report</p>
-      </div>
-      <div class="print-header-right">
-        <div id="phDate_pg-staffing" style="font-weight:700;color:#00695C"></div>
-        <div id="phFilter_pg-staffing"></div>
-      </div>
-    </div>
       <div class="cc"><div class="ct">📡 Staffing Recommendation</div><div class="cst">Based on GrandNPT vs KPI target per department</div><div class="rg" id="recoGrid"></div></div>
       <div class="cg2">
         <div class="cc"><div class="ct">Hours by Type (Monthly)</div><div class="cst">Normal / OT / Non-Productive stacked</div><div class="cw h300"><canvas id="chST"></canvas></div></div>
@@ -395,16 +297,6 @@ tr:hover td{background:#FAFAFA}
 
     <!-- TREND PAGE -->
     <div class="page" id="pg-trend">
-    <div class="print-header">
-      <div class="print-header-left">
-        <h1>Maxicare Children Hospital</h1>
-        <p>Nurse Productivity Management System — Trend Report</p>
-      </div>
-      <div class="print-header-right">
-        <div id="phDate_pg-trend" style="font-weight:700;color:#00695C"></div>
-        <div id="phFilter_pg-trend"></div>
-      </div>
-    </div>
       <div class="cc"><div class="ct">Monthly Trend — Cases, Hours & NPT</div><div class="cst">Multi-axis: cases (bars), staff hours (gold), avg NPT (red)</div><div class="cw h320"><canvas id="chTM"></canvas></div></div>
       <div class="cg2">
         <div class="cc"><div class="ct">HOD Hours per Month</div><div class="cst">Head of Department working hours</div><div class="cw h240"><canvas id="chHOD"></canvas></div></div>
@@ -412,12 +304,9 @@ tr:hover td{background:#FAFAFA}
       </div>
     </div>
 
-    <!-- DATA ENTRY -->
+    <!-- DATA ENTRY (admin only) -->
     <div class="page" id="pg-data">
-      <div id="staffWelcome" style="display:none;background:linear-gradient(135deg,#00695C,#004D40);border-radius:13px;padding:20px 24px;margin-bottom:18px;color:#fff">
-        <div style="font-family:Syne,sans-serif;font-size:17px;font-weight:800;margin-bottom:4px">🗂 Daily Productivity Entry</div>
-        <div style="font-size:13px;opacity:.8">Enter today's cases and working hours for your department. If you submit the same date twice, the system keeps the latest entry only.</div>
-      </div>
+      <div id="staffWelcome" style="display:none;background:linear-gradient(135deg,#00695C,#004D40);border-radius:13px;padding:20px 24px;margin-bottom:18px;color:#fff"><div style="font-family:Syne,sans-serif;font-size:17px;font-weight:800;margin-bottom:4px">🗂 Daily Productivity Entry</div><div style="font-size:13px;opacity:.8">Enter today's cases and working hours. Same date + dept submitted twice = keeps latest entry.</div></div>
       <div class="ag">
         <div class="ac">
           <h3>➕ Add Daily Record</h3>
@@ -435,13 +324,41 @@ tr:hover td{background:#FAFAFA}
         <div class="ac">
           <h3>📋 Recent Manual Entries</h3>
           <p>Records added via this form</p>
-          <div style="overflow-x:auto"><table><thead><tr><th>DATE</th><th>DEPT</th><th>CASES</th><th>HRS</th><th>GNPT</th><th>ST</th><th id="recActHeader" style="display:none">ACTIONS</th></tr></thead><tbody id="recBody"></tbody></table></div>
+          <div style="overflow-x:auto"><table><thead><tr><th>DATE</th><th>DEPT</th><th>CASES</th><th>HRS</th><th>GNPT</th><th>ST</th></tr></thead><tbody id="recBody"></tbody></table></div>
         </div>
       </div>
     </div>
 
     <!-- ADMIN PANEL -->
     <div class="page" id="pg-admin">
+      <!-- GOOGLE SHEETS SYNC CARD -->
+      <div class="ac" style="margin-bottom:16px;border:2px solid #0F9D58;background:linear-gradient(135deg,#f0fbf4,#fff)">
+        <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:12px">
+          <div style="display:flex;align-items:center;gap:10px">
+            <div style="background:#0F9D58;border-radius:8px;padding:8px;font-size:20px;line-height:1">📊</div>
+            <div><h3 style="font-family:Syne,sans-serif;font-size:15px;font-weight:800;color:#0B8043;margin-bottom:2px">Google Sheets Sync</h3><p style="font-size:12px;color:var(--tx3);margin:0">Auto-sync productivity records to Google Sheets</p></div>
+          </div>
+          <div id="lastSyncTime" style="font-size:11px;color:var(--tx3);text-align:right">Last sync: Not yet synced</div>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:14px">
+          <div style="background:var(--bg);border-radius:9px;padding:11px 14px"><div style="font-size:10px;font-weight:700;color:var(--tx3);margin-bottom:3px;letter-spacing:.5px">GOOGLE DRIVE FOLDER</div><div style="font-size:11px;font-family:monospace;color:var(--tx)">Nursing Folder</div><div style="font-size:10px;color:var(--tx3);margin-top:2px">1OEia583MJ_5IzOzwWHuSwH2RZzrDHnFR</div></div>
+          <div style="background:var(--bg);border-radius:9px;padding:11px 14px"><div style="font-size:10px;font-weight:700;color:var(--tx3);margin-bottom:3px;letter-spacing:.5px">SPREADSHEET ID</div><div style="font-size:10px;font-family:monospace;color:var(--tx);word-break:break-all">1ZhzV8CV9Cn9Tp8ihPuaVV1DvcYpM7ZdfFYG4emu4c7Y</div></div>
+          <div style="background:var(--bg);border-radius:9px;padding:11px 14px"><div style="font-size:10px;font-weight:700;color:var(--tx3);margin-bottom:3px;letter-spacing:.5px">SHEET TAB</div><div style="font-size:16px;font-weight:800;color:#0B8043;font-family:Syne,sans-serif">Productivity</div></div>
+        </div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
+          <button onclick="syncToSheets()" id="syncBtn" style="display:flex;align-items:center;gap:6px;padding:9px 18px;background:#0F9D58;color:#fff;border:none;border-radius:9px;font-family:Syne,sans-serif;font-size:13px;font-weight:700;cursor:pointer">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><polyline points="23 20 23 14 17 14"/><path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4-4.64 4.36A9 9 0 0 1 3.51 15"/></svg>
+            Sync Data Now
+          </button>
+          <button onclick="downloadForSheets()" style="padding:9px 18px;background:var(--gold);color:var(--tx);border:none;border-radius:9px;font-family:Syne,sans-serif;font-size:13px;font-weight:700;cursor:pointer">📥 Download CSV</button>
+          <button onclick="showGASCode()" style="padding:9px 18px;background:var(--bg);border:1px solid var(--bdr);border-radius:9px;font-family:Syne,sans-serif;font-size:13px;font-weight:600;cursor:pointer">📋 View Apps Script</button>
+          <button onclick="openSyncSetup()" style="padding:9px 18px;background:var(--bg);border:1px solid var(--bdr);border-radius:9px;font-family:Syne,sans-serif;font-size:13px;font-weight:600;cursor:pointer">⚙️ Setup URL</button>
+        </div>
+        <div id="gasCodeBox" style="display:none;margin-top:14px;background:#1E1E1E;border-radius:10px;padding:16px;position:relative">
+          <button onclick="copyGASCode()" id="copyGasBtn" style="position:absolute;top:10px;right:10px;padding:5px 12px;background:var(--teal);color:#fff;border:none;border-radius:6px;font-size:11px;font-weight:700;cursor:pointer">📋 Copy Code</button>
+          <pre id="gasCodeText" style="font-size:11px;color:#D4D4D4;font-family:monospace;white-space:pre-wrap;margin:0;max-height:320px;overflow-y:auto"></pre>
+        </div>
+      </div>
       <div class="ag" style="margin-bottom:16px">
         <!-- KPI EDITOR -->
         <div class="ac">
@@ -508,148 +425,83 @@ tr:hover td{background:#FAFAFA}
 
     <!-- STAFFING CALCULATOR PAGE -->
     <div class="page" id="pg-calc">
-      <div class="print-header">
-        <div class="print-header-left"><h1>Maxicare Children Hospital</h1><p>Nurse Productivity Management System — Staffing Calculator</p></div>
-        <div class="print-header-right"><div id="phDate_pg-calc" style="font-weight:700;color:#00695C"></div></div>
-      </div>
-
-      <!-- HERO -->
+      <div class="print-header"><div class="print-header-left"><h1>Maxicare Children Hospital</h1><p>Staffing Calculator</p></div><div class="print-header-right"><div id="phDate_pg-calc"></div></div></div>
       <div style="background:linear-gradient(135deg,#00695C,#004D40);border-radius:14px;padding:22px 26px;margin-bottom:18px;color:#fff;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px">
-        <div>
-          <div style="font-family:Syne,sans-serif;font-size:19px;font-weight:800;margin-bottom:4px">🧮 Nurse Staffing Calculator</div>
-          <div style="font-size:13px;opacity:.8;max-width:600px">Based on AHA benchmark data — enter your department details to instantly calculate how many nurses you need, and whether you are currently overstaffed or understaffed.</div>
-        </div>
-        <div style="background:rgba(255,255,255,.12);border-radius:10px;padding:12px 18px;text-align:center;min-width:130px">
-          <div style="font-size:11px;opacity:.7;margin-bottom:3px">VERDICT</div>
-          <div style="font-family:Syne,sans-serif;font-size:18px;font-weight:800" id="calcVerdict">—</div>
-        </div>
+        <div><div style="font-family:Syne,sans-serif;font-size:19px;font-weight:800;margin-bottom:4px">🧮 Nurse Staffing Calculator</div><div style="font-size:13px;opacity:.8;max-width:600px">AHA benchmark-based — enter department details to calculate nursing needs vs current MCH data.</div></div>
+        <div style="background:rgba(255,255,255,.12);border-radius:10px;padding:12px 18px;text-align:center;min-width:130px"><div style="font-size:11px;opacity:.7;margin-bottom:3px">VERDICT</div><div style="font-family:Syne,sans-serif;font-size:18px;font-weight:800" id="calcVerdict">—</div></div>
       </div>
-
-      <!-- CALC TABS -->
-      <div style="display:flex;gap:2px;background:var(--bg);border-radius:10px;padding:3px;margin-bottom:18px;width:fit-content">
-        <button id="ctab-profile" onclick="switchCalcTab('profile',this)" style="padding:8px 18px;border:none;border-radius:8px;font-family:Syne,sans-serif;font-size:13px;font-weight:700;cursor:pointer;background:var(--teal);color:#fff;transition:.15s">Hospital Profile</button>
-        <button id="ctab-detail" onclick="switchCalcTab('detail',this)" style="padding:8px 18px;border:none;border-radius:8px;font-family:Syne,sans-serif;font-size:13px;font-weight:600;cursor:pointer;background:transparent;color:var(--tx2);transition:.15s">Staffing Detail</button>
-        <button id="ctab-benchmark" onclick="switchCalcTab('benchmark',this)" style="padding:8px 18px;border:none;border-radius:8px;font-family:Syne,sans-serif;font-size:13px;font-weight:600;cursor:pointer;background:transparent;color:var(--tx2);transition:.15s">Edit Benchmarks</button>
-        <button id="ctab-formula" onclick="switchCalcTab('formula',this)" style="padding:8px 18px;border:none;border-radius:8px;font-family:Syne,sans-serif;font-size:13px;font-weight:600;cursor:pointer;background:transparent;color:var(--tx2);transition:.15s">Formulas & Sources</button>
+      <div style="display:flex;gap:2px;background:var(--bg);border-radius:10px;padding:3px;margin-bottom:18px;width:fit-content;flex-wrap:wrap">
+        <button id="ctab-profile"   onclick="switchCalcTab('profile',this)"   style="padding:8px 16px;border:none;border-radius:8px;font-family:Syne,sans-serif;font-size:13px;font-weight:700;cursor:pointer;background:var(--teal);color:#fff;transition:.15s">Profile</button>
+        <button id="ctab-detail"    onclick="switchCalcTab('detail',this)"    style="padding:8px 16px;border:none;border-radius:8px;font-family:Syne,sans-serif;font-size:13px;font-weight:600;cursor:pointer;background:transparent;color:var(--tx2);transition:.15s">Staffing Detail</button>
+        <button id="ctab-benchmark" onclick="switchCalcTab('benchmark',this)" style="padding:8px 16px;border:none;border-radius:8px;font-family:Syne,sans-serif;font-size:13px;font-weight:600;cursor:pointer;background:transparent;color:var(--tx2);transition:.15s">Benchmarks</button>
+        <button id="ctab-formula"   onclick="switchCalcTab('formula',this)"   style="padding:8px 16px;border:none;border-radius:8px;font-family:Syne,sans-serif;font-size:13px;font-weight:600;cursor:pointer;background:transparent;color:var(--tx2);transition:.15s">Formulas & Sources</button>
       </div>
 
       <!-- PROFILE TAB -->
       <div id="cpanel-profile">
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px">
           <div class="cc">
-            <div class="ct">🏥 Hospital / Department Profile</div>
-            <div class="cst">Enter your department details to calculate staffing needs</div>
+            <div class="ct">🏥 Hospital Profile</div><div class="cst">Enter department details to calculate staffing needs</div>
             <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px">
               <div class="fg"><label class="fl">HOSPITAL NAME</label><input type="text" id="c-hname" class="fi" value="Maxicare Children Hospital" oninput="runCalc()"></div>
-              <div class="fg"><label class="fl">DEPARTMENT / WARD</label><input type="text" id="c-dept" class="fi" value="General Ward" oninput="runCalc()"></div>
+              <div class="fg"><label class="fl">DEPARTMENT</label><input type="text" id="c-dept" class="fi" value="General Ward" oninput="runCalc()"></div>
             </div>
             <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:10px">
               <div class="fg"><label class="fl">TOTAL BEDS</label><input type="number" id="c-beds" class="fi" value="50" min="1" oninput="runCalc();autoCalcCat()"></div>
-              <div class="fg"><label class="fl">ADMISSIONS/YEAR</label><input type="number" id="c-adm" class="fi" value="3000" min="0" oninput="runCalc()"></div>
-              <div class="fg"><label class="fl">AVG LOS (days)</label><input type="number" id="c-los" class="fi" value="5.0" min="0.1" step="0.1" oninput="runCalc()"></div>
-              <div class="fg"><label class="fl">SIZE CATEGORY</label>
-                <select id="c-cat" class="fs" onchange="runCalc()">
-                  <option value="0">25–49 beds</option>
-                  <option value="1">100–199 beds</option>
-                  <option value="2">300–399 beds</option>
-                  <option value="3">500+ beds</option>
-                </select>
-              </div>
+              <div class="fg"><label class="fl">ADMISSIONS/YR</label><input type="number" id="c-adm" class="fi" value="3000" oninput="runCalc()"></div>
+              <div class="fg"><label class="fl">AVG LOS (days)</label><input type="number" id="c-los" class="fi" value="5.0" step="0.1" oninput="runCalc()"></div>
+              <div class="fg"><label class="fl">SIZE CATEGORY</label><select id="c-cat" class="fs" onchange="runCalc()"><option value="0">25–49 beds</option><option value="1">100–199 beds</option><option value="2">300–399 beds</option><option value="3">500+ beds</option></select></div>
             </div>
             <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
               <div class="fg"><label class="fl">SHIFT HOURS</label><input type="number" id="c-shift" class="fi" value="8" min="4" max="12" oninput="runCalc()"></div>
-              <div class="fg"><label class="fl">WORKING DAYS/NURSE/YEAR</label><input type="number" id="c-wdays" class="fi" value="220" min="100" max="365" oninput="runCalc()"></div>
+              <div class="fg"><label class="fl">WORK DAYS/NURSE/YR</label><input type="number" id="c-wdays" class="fi" value="220" oninput="runCalc()"></div>
             </div>
-            <!-- MCH LINK -->
-            <div style="margin-top:14px;padding:12px 14px;border-radius:9px;background:var(--tlight);font-size:12px;color:var(--tdark)">
-              <strong>💡 MCH Quick Fill:</strong> Auto-fill from your current filter selection?
-              <button onclick="fillFromMCH()" style="margin-left:8px;padding:4px 12px;background:var(--teal);color:#fff;border:none;border-radius:6px;font-size:11px;font-weight:700;cursor:pointer">Fill from MCH Data</button>
+            <div style="margin-top:12px;padding:11px 14px;border-radius:9px;background:var(--tlight);font-size:12px;color:var(--tdark)">
+              💡 <strong>MCH Quick Fill:</strong> <button onclick="fillFromMCH()" style="margin-left:8px;padding:4px 12px;background:var(--teal);color:#fff;border:none;border-radius:6px;font-size:11px;font-weight:700;cursor:pointer">Fill from MCH Data</button>
             </div>
           </div>
-
           <div class="cc">
-            <div class="ct">📊 Bed Utilization</div>
-            <div class="cst">R(%) = [(Admissions ÷ 365) × LOS] ÷ Beds × 100</div>
-            <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px">
-              <div style="background:var(--bg);border-radius:10px;padding:13px 15px;text-align:center">
-                <div style="font-size:11px;color:var(--tx2);font-weight:600;margin-bottom:4px">BED UTILIZATION</div>
-                <div style="font-family:Syne,sans-serif;font-size:26px;font-weight:800;color:var(--tdark)" id="c-mutil">—</div>
-                <div style="height:7px;background:var(--bdr);border-radius:4px;margin-top:8px;overflow:hidden"><div id="c-ubar" style="height:100%;background:var(--teal);border-radius:4px;transition:.4s;width:0%"></div></div>
-              </div>
-              <div style="background:var(--bg);border-radius:10px;padding:13px 15px;text-align:center">
-                <div style="font-size:11px;color:var(--tx2);font-weight:600;margin-bottom:4px">AVG OCCUPIED BEDS</div>
-                <div style="font-family:Syne,sans-serif;font-size:26px;font-weight:800;color:var(--blue)" id="c-mocc">—</div>
-                <div style="font-size:11px;color:var(--tx3);margin-top:6px">patients at any time</div>
-              </div>
-              <div style="background:var(--bg);border-radius:10px;padding:13px 15px;text-align:center">
-                <div style="font-size:11px;color:var(--tx2);font-weight:600;margin-bottom:4px">ADMISSIONS/DAY</div>
-                <div style="font-family:Syne,sans-serif;font-size:26px;font-weight:800;color:var(--tdark)" id="c-mapd">—</div>
-              </div>
-              <div style="background:var(--bg);border-radius:10px;padding:13px 15px;text-align:center">
-                <div style="font-size:11px;color:var(--tx2);font-weight:600;margin-bottom:4px">AHA BENCHMARK</div>
-                <div style="font-family:Syne,sans-serif;font-size:26px;font-weight:800;color:var(--gold)" id="c-mbench">—</div>
-              </div>
+            <div class="ct">📊 Bed Utilization</div><div class="cst">R(%) = [(Admissions ÷ 365) × LOS] ÷ Beds × 100</div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px">
+              <div style="background:var(--bg);border-radius:10px;padding:13px;text-align:center"><div style="font-size:11px;color:var(--tx2);font-weight:600;margin-bottom:4px">BED UTILIZATION</div><div style="font-family:Syne,sans-serif;font-size:26px;font-weight:800;color:var(--tdark)" id="c-mutil">—</div><div style="height:7px;background:var(--bdr);border-radius:4px;margin-top:8px;overflow:hidden"><div id="c-ubar" style="height:100%;background:var(--teal);border-radius:4px;transition:.4s;width:0%"></div></div></div>
+              <div style="background:var(--bg);border-radius:10px;padding:13px;text-align:center"><div style="font-size:11px;color:var(--tx2);font-weight:600;margin-bottom:4px">AVG OCCUPIED BEDS</div><div style="font-family:Syne,sans-serif;font-size:26px;font-weight:800;color:var(--blue)" id="c-mocc">—</div></div>
+              <div style="background:var(--bg);border-radius:10px;padding:13px;text-align:center"><div style="font-size:11px;color:var(--tx2);font-weight:600;margin-bottom:4px">ADMISSIONS/DAY</div><div style="font-family:Syne,sans-serif;font-size:26px;font-weight:800;color:var(--tdark)" id="c-mapd">—</div></div>
+              <div style="background:var(--bg);border-radius:10px;padding:13px;text-align:center"><div style="font-size:11px;color:var(--tx2);font-weight:600;margin-bottom:4px">AHA BENCHMARK</div><div style="font-family:Syne,sans-serif;font-size:26px;font-weight:800;color:var(--gold)" id="c-mbench">—</div></div>
             </div>
-            <div id="c-utilAlert" style="padding:11px 14px;border-radius:9px;font-size:12px;font-weight:500"></div>
+            <div id="c-utilAlert" style="padding:10px 14px;border-radius:9px;font-size:12px;font-weight:500"></div>
           </div>
         </div>
-
-        <!-- RESULT CARDS -->
         <div class="kg" style="margin-bottom:16px">
-          <div class="kc t" style="text-align:center">
-            <div class="kl">RN TOTAL FTE NEEDED</div>
-            <div style="font-family:Syne,sans-serif;font-size:36px;font-weight:800;color:var(--teal)" id="c-mrn">—</div>
-            <div class="ks">Full + part time RN</div>
-          </div>
-          <div class="kc b" style="text-align:center">
-            <div class="kl">LPN TOTAL FTE NEEDED</div>
-            <div style="font-family:Syne,sans-serif;font-size:36px;font-weight:800;color:var(--blue)" id="c-mlpn">—</div>
-            <div class="ks">Licensed Practical Nurse</div>
-          </div>
-          <div class="kc g" style="text-align:center">
-            <div class="kl">GRAND TOTAL NURSES</div>
-            <div style="font-family:Syne,sans-serif;font-size:36px;font-weight:800;color:var(--gold)" id="c-mtot">—</div>
-            <div class="ks">All nursing staff needed</div>
-          </div>
-          <div class="kc r" style="text-align:center">
-            <div class="kl">VERDICT</div>
-            <div style="font-family:Syne,sans-serif;font-size:18px;font-weight:800;line-height:1.2;margin-top:6px" id="c-mverdict">—</div>
-            <div class="ks" id="c-mverdictSub">vs current MCH data</div>
-          </div>
+          <div class="kc t" style="text-align:center"><div class="kl">RN FTE NEEDED</div><div style="font-family:Syne,sans-serif;font-size:36px;font-weight:800;color:var(--teal)" id="c-mrn">—</div><div class="ks">Full + part time RN</div></div>
+          <div class="kc b" style="text-align:center"><div class="kl">LPN FTE NEEDED</div><div style="font-family:Syne,sans-serif;font-size:36px;font-weight:800;color:var(--blue)" id="c-mlpn">—</div><div class="ks">Licensed Practical Nurse</div></div>
+          <div class="kc g" style="text-align:center"><div class="kl">GRAND TOTAL</div><div style="font-family:Syne,sans-serif;font-size:36px;font-weight:800;color:var(--gold)" id="c-mtot">—</div><div class="ks">All nursing staff</div></div>
+          <div class="kc r" style="text-align:center"><div class="kl">VERDICT</div><div style="font-family:Syne,sans-serif;font-size:18px;font-weight:800;line-height:1.2;margin-top:6px" id="c-mverdict">—</div><div class="ks" id="c-mverdictSub">vs current MCH data</div></div>
         </div>
-
-        <!-- MCH COMPARISON -->
-        <div class="cc">
-          <div class="ct">📋 MCH vs Calculator Comparison</div>
-          <div class="cst">How your current MCH staff hours compare to the calculated need</div>
-          <div style="overflow-x:auto">
-            <table><thead><tr><th>METRIC</th><th>MCH CURRENT (Filtered)</th><th>CALCULATOR ESTIMATE</th><th>DIFFERENCE</th><th>SIGNAL</th></tr></thead>
-            <tbody id="c-compTable"></tbody></table>
-          </div>
+        <div class="cc"><div class="ct">📋 MCH vs Calculator</div><div class="cst">Current MCH staff hours vs calculated need</div>
+          <table><thead><tr><th>METRIC</th><th>MCH CURRENT</th><th>CALCULATOR</th><th>DIFFERENCE</th><th>SIGNAL</th></tr></thead><tbody id="c-compTable"></tbody></table>
         </div>
       </div>
 
-      <!-- DETAIL TAB -->
+      <!-- STAFFING DETAIL TAB -->
       <div id="cpanel-detail" style="display:none">
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px">
           <div class="cc">
-            <div class="ct">👥 FTE Breakdown by Role</div>
-            <div class="cst">Staffing ratios per bed from AHA benchmark</div>
-            <table><thead><tr><th>ROLE</th><th>RATIO/BED</th><th>TOTAL FTE</th><th>TYPE</th></tr></thead>
-            <tbody id="c-fteTable"></tbody></table>
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:3px">
+              <div class="ct">👥 FTE Breakdown by Role</div>
+            </div>
+            <div class="cst">Staffing ratios per bed — edit or add roles</div>
+            <table><thead><tr><th>ROLE</th><th>RATIO/BED</th><th>TOTAL FTE</th><th>TYPE</th></tr></thead><tbody id="c-fteTable"></tbody></table>
           </div>
           <div class="cc">
             <div class="ct">🕐 Daily Shift Requirements</div>
-            <div class="cst">Based on occupied beds and nurse-to-patient ratio per shift</div>
-            <table><thead><tr><th>SHIFT</th><th>TIME</th><th>RN</th><th>LPN</th><th>TOTAL</th></tr></thead>
-            <tbody id="c-shiftTable"></tbody></table>
+            <div class="cst">Based on occupied beds per shift — edit or add shifts</div>
+            <table><thead><tr><th>SHIFT</th><th>TIME</th><th>RN</th><th>LPN</th><th>TOTAL</th></tr></thead><tbody id="c-shiftTable"></tbody></table>
           </div>
         </div>
         <div class="cc">
           <div class="ct">📅 Annual Staffing Estimate</div>
-          <div class="cst">Based on occupied beds, working days, and shift hours</div>
-          <table><thead><tr><th>ITEM</th><th>VALUE</th><th>NOTES</th></tr></thead>
-          <tbody id="c-annualTable"></tbody></table>
+          <div class="cst">Based on occupied beds, working days, and shift hours — edit or add rows</div>
+          <table><thead><tr><th>ITEM</th><th>VALUE</th><th>NOTES</th></tr></thead><tbody id="c-annualTable"></tbody></table>
         </div>
       </div>
 
@@ -657,291 +509,75 @@ tr:hover td{background:#FAFAFA}
       <div id="cpanel-benchmark" style="display:none">
         <div class="cc" style="margin-bottom:14px">
           <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px">
-            <div><div class="ct">✏️ Edit AHA Benchmark Ratios</div><div class="cst">Pre-loaded from AHA Hospital Statistics 2004 data — edit any value</div></div>
+            <div><div class="ct">✏️ Edit AHA Benchmark Ratios</div><div class="cst">Pre-loaded from AHA Hospital Statistics 2004</div></div>
             <div style="display:flex;gap:8px">
-              <button onclick="applyBenchEdit()" class="btn t" style="font-size:12px;padding:7px 14px">✅ Apply Changes</button>
-              <button onclick="resetBenchmarks()" class="btn n" style="font-size:12px;padding:7px 14px">🔄 Reset AHA Defaults</button>
+              <button onclick="applyBenchEdit()" class="btn t" style="font-size:12px;padding:7px 14px">✅ Apply</button>
+              <button onclick="resetBenchmarks()" class="btn n" style="font-size:12px;padding:7px 14px">🔄 Reset</button>
             </div>
           </div>
           <div id="c-benchList"></div>
         </div>
         <div class="cc">
-          <div class="ct">➕ Add Custom Size Category</div>
-          <div class="cst">Define your own hospital size category</div>
+          <div class="ct">➕ Add Custom Category</div><div class="cst" style="margin-bottom:12px">Define your own hospital size</div>
           <div style="display:grid;grid-template-columns:repeat(6,1fr) auto;gap:8px;align-items:end">
-            <div class="fg"><label class="fl">CATEGORY NAME</label><input type="text" id="cb-name" class="fi" placeholder="e.g. 200–299" style="font-size:12px"></div>
-            <div class="fg"><label class="fl">RN FT/BED</label><input type="number" id="cb-rnft" class="fi" value="0.90" step="0.01" min="0" style="font-size:12px"></div>
-            <div class="fg"><label class="fl">RN PT/BED</label><input type="number" id="cb-rnpt" class="fi" value="0.50" step="0.01" min="0" style="font-size:12px"></div>
-            <div class="fg"><label class="fl">LPN FT/BED</label><input type="number" id="cb-lpnft" class="fi" value="0.12" step="0.01" min="0" style="font-size:12px"></div>
-            <div class="fg"><label class="fl">LPN PT/BED</label><input type="number" id="cb-lpnpt" class="fi" value="0.06" step="0.01" min="0" style="font-size:12px"></div>
-            <div class="fg"><label class="fl">UTIL %</label><input type="number" id="cb-util" class="fi" value="65" step="1" min="1" max="100" style="font-size:12px"></div>
-            <div class="fg"><label class="fl">&nbsp;</label><button onclick="addBenchCat()" class="btn t" style="font-size:12px;padding:9px 14px;white-space:nowrap">➕ Add</button></div>
+            <div class="fg"><label class="fl">NAME</label><input type="text" id="cb-name" class="fi" placeholder="200–299" style="font-size:12px"></div>
+            <div class="fg"><label class="fl">RN FT/BED</label><input type="number" id="cb-rnft" class="fi" value="0.90" step="0.01" style="font-size:12px"></div>
+            <div class="fg"><label class="fl">RN PT/BED</label><input type="number" id="cb-rnpt" class="fi" value="0.50" step="0.01" style="font-size:12px"></div>
+            <div class="fg"><label class="fl">LPN FT/BED</label><input type="number" id="cb-lpnft" class="fi" value="0.12" step="0.01" style="font-size:12px"></div>
+            <div class="fg"><label class="fl">LPN PT/BED</label><input type="number" id="cb-lpnpt" class="fi" value="0.06" step="0.01" style="font-size:12px"></div>
+            <div class="fg"><label class="fl">UTIL %</label><input type="number" id="cb-util" class="fi" value="65" style="font-size:12px"></div>
+            <div class="fg"><label class="fl">&nbsp;</label><button onclick="addBenchCat()" class="btn t" style="font-size:12px;padding:9px 14px">➕ Add</button></div>
           </div>
         </div>
       </div>
 
-      <!-- FORMULA & SOURCES TAB — fully editable -->
+      <!-- FORMULA TAB -->
       <div id="cpanel-formula" style="display:none">
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
-
-          <!-- FORMULAS CARD -->
           <div class="cc">
-            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:3px">
-              <div class="ct">⚙️ Formulas Used</div>
-              <button onclick="openCalcModal('formula',-1)" style="display:flex;align-items:center;gap:5px;padding:6px 12px;background:var(--teal);color:#fff;border:none;border-radius:8px;font-size:12px;font-weight:700;cursor:pointer">+ Add Formula</button>
-            </div>
-            <div class="cst" style="margin-bottom:14px">Edit or add formulas used in this calculator</div>
-            <div id="calcFormulaList" style="display:flex;flex-direction:column;gap:10px;font-size:13px"></div>
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:3px"><div class="ct">⚙️ Formulas</div><button onclick="openCalcModal('formula',-1)" style="padding:6px 12px;background:var(--teal);color:#fff;border:none;border-radius:8px;font-size:12px;font-weight:700;cursor:pointer">+ Add</button></div>
+            <div class="cst" style="margin-bottom:12px">Edit or add formulas</div>
+            <div id="calcFormulaList"></div>
           </div>
-
-          <!-- SOURCES CARD -->
           <div class="cc">
-            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:3px">
-              <div class="ct">📖 Data Sources</div>
-              <button onclick="openCalcModal('source',-1)" style="display:flex;align-items:center;gap:5px;padding:6px 12px;background:var(--teal);color:#fff;border:none;border-radius:8px;font-size:12px;font-weight:700;cursor:pointer">+ Add Source</button>
-            </div>
-            <div class="cst" style="margin-bottom:14px">Edit or add references for this calculator</div>
-            <div id="calcSourceList" style="display:flex;flex-direction:column;gap:9px;font-size:13px"></div>
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:3px"><div class="ct">📖 Sources</div><button onclick="openCalcModal('source',-1)" style="padding:6px 12px;background:var(--teal);color:#fff;border:none;border-radius:8px;font-size:12px;font-weight:700;cursor:pointer">+ Add</button></div>
+            <div class="cst" style="margin-bottom:12px">Edit or add references</div>
+            <div id="calcSourceList"></div>
           </div>
-        </div>
-
-        <!-- SHIFT DISTRIBUTION — editable -->
-        <div class="cc" style="margin-top:16px">
-          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:3px">
-            <div class="ct">🕐 Shift Distribution Settings</div>
-            <button onclick="resetShiftDist()" style="padding:6px 12px;background:var(--bg);border:1px solid var(--bdr);border-radius:8px;font-size:12px;cursor:pointer">🔄 Reset Default</button>
-          </div>
-          <div class="cst" style="margin-bottom:14px">Adjust the % of nurses scheduled per shift (must total 100%)</div>
-          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;align-items:start">
-            <div style="background:var(--tlight);border-radius:10px;padding:14px">
-              <div style="font-size:12px;font-weight:700;color:var(--tdark);margin-bottom:8px">🌅 MORNING (07:00–15:00)</div>
-              <div class="fg"><label class="fl">% of daily nurses</label><input type="number" id="sd-morning" class="fi" value="40" min="1" max="98" oninput="updateShiftPct()" style="font-size:15px;font-weight:700;text-align:center"></div>
-              <div style="font-size:11px;color:var(--tx3);margin-top:5px">Highest activity — admit, rounds, procedures</div>
-            </div>
-            <div style="background:var(--glight);border-radius:10px;padding:14px">
-              <div style="font-size:12px;font-weight:700;color:#5D4037;margin-bottom:8px">🌇 AFTERNOON (15:00–23:00)</div>
-              <div class="fg"><label class="fl">% of daily nurses</label><input type="number" id="sd-afternoon" class="fi" value="35" min="1" max="98" oninput="updateShiftPct()" style="font-size:15px;font-weight:700;text-align:center"></div>
-              <div style="font-size:11px;color:var(--tx3);margin-top:5px">Moderate activity — discharge, evening care</div>
-            </div>
-            <div style="background:var(--blight);border-radius:10px;padding:14px">
-              <div style="font-size:12px;font-weight:700;color:#0C447C;margin-bottom:8px">🌙 NIGHT (23:00–07:00)</div>
-              <div class="fg"><label class="fl">% of daily nurses</label><input type="number" id="sd-night" class="fi" value="25" min="1" max="98" oninput="updateShiftPct()" style="font-size:15px;font-weight:700;text-align:center"></div>
-              <div style="font-size:11px;color:var(--tx3);margin-top:5px">Minimum coverage — monitoring, emergencies</div>
-            </div>
-          </div>
-          <div id="sdAlert" style="margin-top:10px;padding:9px 14px;border-radius:8px;font-size:12px;font-weight:600;display:none"></div>
         </div>
       </div>
     </div>
 
     <!-- REFERENCE PAGE -->
     <div class="page" id="pg-ref">
-      <div class="print-header">
-        <div class="print-header-left"><h1>Maxicare Children Hospital</h1><p>Nurse Productivity Management System — Reference Standards</p></div>
-        <div class="print-header-right"><div id="phDate_pg-ref" style="font-weight:700;color:#00695C"></div><div id="phFilter_pg-ref"></div></div>
-      </div>
-
-      <!-- HERO BANNER -->
-      <div style="background:linear-gradient(135deg,#00695C,#004D40);border-radius:14px;padding:24px 28px;margin-bottom:18px;color:#fff">
-        <div style="font-family:Syne,sans-serif;font-size:20px;font-weight:800;margin-bottom:6px">📚 Nursing Staffing Reference Standards</div>
-        <div style="font-size:13px;opacity:.8;max-width:700px">International benchmarks for nurse-to-patient ratios, productivity standards, and staffing guidelines — compiled from The Joint Commission (TJC), National Nurses United (NNU), California Law, and peer-reviewed literature (2023–2026).</div>
-      </div>
-
-      <!-- NURSE-TO-PATIENT RATIO STANDARDS -->
+      <div class="print-header"><div class="print-header-left"><h1>Maxicare Children Hospital</h1><p>Reference Standards</p></div><div class="print-header-right"><div id="phDate_pg-ref"></div></div></div>
+      <div style="background:linear-gradient(135deg,#00695C,#004D40);border-radius:14px;padding:24px 28px;margin-bottom:18px;color:#fff"><div style="font-family:Syne,sans-serif;font-size:20px;font-weight:800;margin-bottom:6px">📚 Nursing Staffing Reference Standards</div><div style="font-size:13px;opacity:.8">International benchmarks for nurse-to-patient ratios — compiled from TJC, NNU, California Law, and peer-reviewed literature (2023–2026).</div></div>
       <div class="cc" style="margin-bottom:16px">
-        <div class="ct">👩‍⚕️ Recommended Nurse-to-Patient Ratios by Department</div>
-        <div class="cst">International standards — California (CA), National Nurses United (NNU), Joint Commission (TJC) 2026</div>
-        <div style="overflow-x:auto">
-          <table>
-            <thead>
-              <tr>
-                <th>DEPARTMENT / UNIT</th>
-                <th>RATIO (Nurse:Patient)</th>
-                <th>CA LAW</th>
-                <th>NNU STANDARD</th>
-                <th>INTERNATIONAL</th>
-                <th>MCH KPI (NPT)</th>
-                <th>NOTES</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr><td><strong>OPD / Outpatient</strong></td><td>1 : 50</td><td>—</td><td>1:50</td><td>1:50 (OPD)</td><td><span class="pill b">1.3 hrs/case</span></td><td>High-volume, low-acuity</td></tr>
-              <tr style="background:#FAFAFA"><td><strong>Emergency Room (ER)</strong></td><td>1 : 3 – 1 : 4</td><td>1:4</td><td>1:3</td><td>1:3 (trauma); 1:4 (general)</td><td><span class="pill b">3.5 hrs/case</span></td><td>Acuity-adjusted ratio</td></tr>
-              <tr><td><strong>General Ward</strong></td><td>1 : 5 – 1 : 6</td><td>1:5</td><td>1:4</td><td>1:5–6</td><td><span class="pill b">11.5 hrs/case</span></td><td>Includes LR, NS</td></tr>
-              <tr style="background:#FAFAFA"><td><strong>ICU / Critical Care</strong></td><td>1 : 1 – 1 : 2</td><td>1:2</td><td>1:2</td><td>1:1 (vent); 1:2 (non-vent)</td><td><span class="pill b">24.0 hrs/case</span></td><td>Continuous monitoring required</td></tr>
-              <tr><td><strong>NICU</strong></td><td>1 : 1 – 1 : 2</td><td>1:2</td><td>1:1</td><td>1:1 (neonatal)</td><td><span class="pill b">8.0 hrs/case</span></td><td>Neonatal Intensive Care</td></tr>
-              <tr style="background:#FAFAFA"><td><strong>CCU / Coronary Care</strong></td><td>1 : 2</td><td>—</td><td>1:2</td><td>1:2</td><td><span class="pill b">6.0 hrs/case</span></td><td>NY requires 1:2 minimum</td></tr>
-              <tr><td><strong>OR / Operating Room</strong></td><td>1 : 1</td><td>1:1</td><td>1:1</td><td>2 nurses/table (major)</td><td><span class="pill b">0.028 hrs/case</span></td><td>Scrub + circulating roles</td></tr>
-              <tr style="background:#FAFAFA"><td><strong>Pediatric Ward</strong></td><td>1 : 4</td><td>1:4</td><td>1:3</td><td>1:4–5</td><td>—</td><td>CA guarantees 1:4 for peds</td></tr>
-              <tr><td><strong>Labor & Delivery</strong></td><td>1 : 2</td><td>1:2</td><td>1:2</td><td>1 nurse/table</td><td>—</td><td>Active labor requires 1:1</td></tr>
-            </tbody>
-          </table>
-        </div>
+        <div class="ct">👩‍⚕️ Nurse-to-Patient Ratios by Department</div><div class="cst">International standards — CA Law, NNU, TJC 2026</div>
+        <div style="overflow-x:auto"><table><thead><tr><th>DEPARTMENT</th><th>RATIO</th><th>CA LAW</th><th>NNU</th><th>INTERNATIONAL</th><th>MCH KPI (NPT)</th></tr></thead><tbody>
+          <tr><td><strong>OPD</strong></td><td>1:50</td><td>—</td><td>1:50</td><td>1:50</td><td><span class="pill b">1.3 hrs/case</span></td></tr>
+          <tr style="background:#FAFAFA"><td><strong>ER</strong></td><td>1:3–1:4</td><td>1:4</td><td>1:3</td><td>1:3–4</td><td><span class="pill b">3.5 hrs/case</span></td></tr>
+          <tr><td><strong>General Ward</strong></td><td>1:5–1:6</td><td>1:5</td><td>1:4</td><td>1:5–6</td><td><span class="pill b">11.5 hrs/case</span></td></tr>
+          <tr style="background:#FAFAFA"><td><strong>ICU</strong></td><td>1:1–1:2</td><td>1:2</td><td>1:2</td><td>1:1–2</td><td><span class="pill b">24.0 hrs/case</span></td></tr>
+          <tr><td><strong>NICU</strong></td><td>1:1–1:2</td><td>1:2</td><td>1:1</td><td>1:1</td><td><span class="pill b">8.0 hrs/case</span></td></tr>
+          <tr style="background:#FAFAFA"><td><strong>CCU</strong></td><td>1:2</td><td>—</td><td>1:2</td><td>1:2</td><td><span class="pill b">6.0 hrs/case</span></td></tr>
+          <tr><td><strong>OR/CSSD/GI</strong></td><td>1:1</td><td>1:1</td><td>1:1</td><td>2/table</td><td><span class="pill b">0.028 hrs/case</span></td></tr>
+        </tbody></table></div>
       </div>
-
-      <!-- 3 COLUMN INFO -->
       <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:16px">
-
-        <!-- TJC 2026 -->
-        <div class="cc" style="margin-bottom:0">
-          <div class="ct">🏥 Joint Commission — 2026</div>
-          <div class="cst">National Performance Goal 12 (NPG-12)</div>
-          <div style="font-size:13px;color:var(--tx2);line-height:1.8">
-            <div style="background:var(--tlight);border-radius:8px;padding:10px 13px;margin-bottom:10px;font-size:12px;color:var(--tdark)">
-              <strong>"The hospital is adequately staffed to meet the needs of the patients it serves"</strong>
-            </div>
-            <div style="display:flex;flex-direction:column;gap:7px">
-              <div style="display:flex;gap:8px;align-items:flex-start"><span style="color:var(--teal);font-size:14px;margin-top:1px">✓</span><span>Nurse executives accountable for staffing decisions</span></div>
-              <div style="display:flex;gap:8px;align-items:flex-start"><span style="color:var(--teal);font-size:14px;margin-top:1px">✓</span><span>Measurable, trackable staffing KPIs required</span></div>
-              <div style="display:flex;gap:8px;align-items:flex-start"><span style="color:var(--teal);font-size:14px;margin-top:1px">✓</span><span>Minimum 8 consecutive RN hours/day mandatory</span></div>
-              <div style="display:flex;gap:8px;align-items:flex-start"><span style="color:var(--teal);font-size:14px;margin-top:1px">✓</span><span>Licensed nurse on duty 24/7 required</span></div>
-              <div style="display:flex;gap:8px;align-items:flex-start"><span style="color:var(--teal);font-size:14px;margin-top:1px">✓</span><span>Directly impacts hospital accreditation status</span></div>
-            </div>
-            <div style="margin-top:12px;font-size:11px;color:var(--tx3)">Effective: January 2026<br>Source: The Joint Commission (TJC), AACN 2025</div>
-          </div>
-        </div>
-
-        <!-- NPT FORMULA -->
-        <div class="cc" style="margin-bottom:0">
-          <div class="ct">⚙️ NPT Formula & Interpretation</div>
-          <div class="cst">Nurse Productivity Time — how MCH measures efficiency</div>
-          <div style="background:var(--bg);border-radius:10px;padding:14px;margin-bottom:12px;text-align:center">
-            <div style="font-size:12px;color:var(--tx3);margin-bottom:6px">GRANDNPT Formula</div>
-            <div style="font-family:Syne,sans-serif;font-size:16px;font-weight:800;color:var(--tdark)">NPT = Grand Total Hours ÷ Cases</div>
-            <div style="font-size:11px;color:var(--tx3);margin-top:5px">hours of nursing time per patient/case</div>
-          </div>
-          <div style="display:flex;flex-direction:column;gap:7px;font-size:13px">
-            <div style="display:flex;align-items:center;gap:10px;padding:8px 10px;border-radius:8px;background:var(--rlight)">
-              <span style="width:10px;height:10px;border-radius:50%;background:var(--red);flex-shrink:0;display:inline-block"></span>
-              <div><strong>NPT &gt; KPI ×1.2</strong><br><span style="font-size:11px;color:var(--tx3)">Too many hrs/case → Increase staff</span></div>
-            </div>
-            <div style="display:flex;align-items:center;gap:10px;padding:8px 10px;border-radius:8px;background:var(--glight)">
-              <span style="width:10px;height:10px;border-radius:50%;background:#F9A825;flex-shrink:0;display:inline-block"></span>
-              <div><strong>NPT within ±15–20%</strong><br><span style="font-size:11px;color:var(--tx3)">On target → Maintain current staffing</span></div>
-            </div>
-            <div style="display:flex;align-items:center;gap:10px;padding:8px 10px;border-radius:8px;background:var(--grnlight)">
-              <span style="width:10px;height:10px;border-radius:50%;background:var(--green);flex-shrink:0;display:inline-block"></span>
-              <div><strong>NPT &lt; KPI ×0.85</strong><br><span style="font-size:11px;color:var(--tx3)">High efficiency → Reduce/reassign staff</span></div>
-            </div>
-          </div>
-        </div>
-
-        <!-- RESEARCH EVIDENCE -->
-        <div class="cc" style="margin-bottom:0">
-          <div class="ct">🔬 Research Evidence</div>
-          <div class="cst">Impact of nurse staffing on patient outcomes</div>
-          <div style="display:flex;flex-direction:column;gap:9px;font-size:13px">
-            <div style="border-left:3px solid var(--teal);padding:8px 12px;border-radius:0 8px 8px 0;background:var(--bg)">
-              <strong style="color:var(--tdark)">+7–8% mortality risk</strong><br>
-              <span style="font-size:11px;color:var(--tx3)">per additional patient added to nurse workload (Medical Care, 2021)</span>
-            </div>
-            <div style="border-left:3px solid var(--gold);padding:8px 12px;border-radius:0 8px 8px 0;background:var(--bg)">
-              <strong style="color:#5D4037">89% of nurses</strong><br>
-              <span style="font-size:11px;color:var(--tx3)">reported staffing shortages in 2022 (American Nurses Foundation)</span>
-            </div>
-            <div style="border-left:3px solid var(--red);padding:8px 12px;border-radius:0 8px 8px 0;background:var(--bg)">
-              <strong style="color:var(--red)">27.1% RN turnover</strong><br>
-              <span style="font-size:11px;color:var(--tx3)">hospital RN turnover in 2021; 73% vacancy rate increase (NSI 2022)</span>
-            </div>
-            <div style="border-left:3px solid var(--blue);padding:8px 12px;border-radius:0 8px 8px 0;background:var(--bg)">
-              <strong style="color:var(--blue)">52% considering leaving</strong><br>
-              <span style="font-size:11px;color:var(--tx3)">nurses citing inadequate staffing as primary reason (ANF 2022)</span>
-            </div>
-          </div>
-        </div>
+        <div class="cc"><div class="ct">🏥 TJC Goal 12 — 2026</div><div class="cst" style="margin-bottom:12px">National Performance Goal</div><div style="font-size:13px;color:var(--tx2);line-height:1.9"><div style="background:var(--tlight);border-radius:8px;padding:10px 13px;margin-bottom:10px;font-size:12px;color:var(--tdark)"><strong>"Hospital is adequately staffed to meet patient needs"</strong></div>Nurse executives accountable for staffing<br>Measurable KPIs required<br>Min 8 consecutive RN hrs/day<br>Licensed nurse on duty 24/7<br><div style="font-size:11px;color:var(--tx3);margin-top:8px">Effective Jan 2026 · Source: AACN 2025</div></div></div>
+        <div class="cc"><div class="ct">⚙️ NPT Formula</div><div class="cst" style="margin-bottom:12px">Nurse Productivity Time</div><div style="background:var(--bg);border-radius:10px;padding:14px;margin-bottom:12px;text-align:center"><div style="font-size:11px;color:var(--tx3);margin-bottom:6px">GRANDNPT Formula</div><div style="font-family:Syne,sans-serif;font-size:15px;font-weight:800;color:var(--tdark)">NPT = Total Hours ÷ Cases</div></div><div style="display:flex;flex-direction:column;gap:7px;font-size:12px"><div style="padding:7px 10px;border-radius:8px;background:var(--rlight)">🔴 NPT &gt; KPI×1.2 → <strong>Increase nurses</strong></div><div style="padding:7px 10px;border-radius:8px;background:var(--glight)">🟡 Within ±15–20% → <strong>Maintain</strong></div><div style="padding:7px 10px;border-radius:8px;background:var(--grnlight)">🟢 NPT &lt; KPI×0.85 → <strong>Reduce/reassign</strong></div></div></div>
+        <div class="cc"><div class="ct">🔬 Research Evidence</div><div class="cst" style="margin-bottom:12px">Impact of staffing on outcomes</div><div style="display:flex;flex-direction:column;gap:8px;font-size:12px"><div style="border-left:3px solid var(--teal);padding:8px 12px;background:var(--bg);border-radius:0 8px 8px 0"><strong>+7–8% mortality risk</strong><br><span style="font-size:10px;color:var(--tx3)">per extra patient per nurse (2021)</span></div><div style="border-left:3px solid var(--gold);padding:8px 12px;background:var(--bg);border-radius:0 8px 8px 0"><strong>89% nurse shortage reports</strong><br><span style="font-size:10px;color:var(--tx3)">ANF Survey 2022</span></div><div style="border-left:3px solid var(--red);padding:8px 12px;background:var(--bg);border-radius:0 8px 8px 0"><strong>27.1% RN turnover</strong><br><span style="font-size:10px;color:var(--tx3)">NSI Report 2022</span></div></div></div>
       </div>
-
-      <!-- KPI QUICK REFERENCE -->
-      <div class="cc" style="margin-bottom:16px">
-        <div class="ct">📋 MCH Department KPI Quick Reference</div>
-        <div class="cst">Current GrandNPT targets set in system — editable via Admin Panel</div>
-        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:10px" id="refKPIGrid"></div>
-      </div>
-
-      <!-- SOURCES -->
+      <div class="cc" style="margin-bottom:16px"><div class="ct">📋 MCH KPI Quick Reference</div><div class="cst">Current GrandNPT targets</div><div id="refKPIGrid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:10px"></div></div>
       <div class="cc">
-        <div class="ct">📖 Sources & References</div>
-        <div class="cst">All references used in this system</div>
-        <!-- Admin Add Reference button -->
-        <div id="refAdminBar" style="display:none;margin-bottom:12px">
-          <button onclick="openRefModal()" style="display:flex;align-items:center;gap:7px;padding:9px 16px;background:var(--teal);color:#fff;border:none;border-radius:9px;font-family:Syne,sans-serif;font-size:13px;font-weight:700;cursor:pointer">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-            Add New Reference
-          </button>
-        </div>
-        <!-- Dynamic references list -->
-        <div id="refList" style="display:flex;flex-direction:column;gap:8px;font-size:13px"></div>
-        <div style="margin-top:14px;padding:12px 14px;border-radius:8px;background:var(--tlight);font-size:12px;color:var(--tdark)">
-          <strong>Note:</strong> MCH KPI targets (GrandNPT hrs/case) are set based on department-specific workflows and may differ from nurse-to-patient ratios. KPI values can be adjusted by the Admin to reflect actual staffing models and workload patterns at MCH.
-        </div>
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px"><div><div class="ct">📖 Sources & References</div><div class="cst">All references used in this system</div></div><div id="refAdminBar" style="display:none"><button onclick="openRefModal()" style="padding:7px 14px;background:var(--teal);color:#fff;border:none;border-radius:9px;font-size:12px;font-weight:700;cursor:pointer">+ Add Reference</button></div></div>
+        <div id="refList"></div>
+        <div style="margin-top:12px;padding:11px 14px;border-radius:8px;background:var(--tlight);font-size:12px;color:var(--tdark)"><strong>Note:</strong> MCH KPI targets are set based on department-specific workflows. Adjust via Admin Panel.</div>
       </div>
     </div>
+
   </main>
-</div>
-
-<!-- CALC FORMULA / SOURCE MODAL -->
-<div class="modal" id="calcModal">
-  <div class="mbox">
-    <div class="mh" id="calcModalTitle">Add Item</div>
-    <div class="ms" id="calcModalSub">Fill in the details below</div>
-    <input type="hidden" id="calcModalType">
-    <input type="hidden" id="calcModalIdx">
-
-    <!-- FORMULA FIELDS -->
-    <div id="calcModalFormulaFields">
-      <div class="fg"><label class="fl">FORMULA NAME</label><input type="text" id="cmf-name" class="fi" placeholder="e.g. Bed Utilization Rate (R)"></div>
-      <div class="fg"><label class="fl">FORMULA EXPRESSION</label><input type="text" id="cmf-expr" class="fi" placeholder="e.g. R = [(Adm ÷ 365) × LOS] ÷ Beds × 100" style="font-family:monospace"></div>
-      <div class="fg"><label class="fl">EXPLANATION</label><textarea id="cmf-desc" class="fi" rows="3" style="resize:vertical;height:70px" placeholder="Describe what this formula calculates..."></textarea></div>
-      <div class="fg"><label class="fl">COLOR THEME</label>
-        <select id="cmf-color" class="fs">
-          <option value="teal">Teal (Default)</option>
-          <option value="blue">Blue</option>
-          <option value="gold">Gold / Amber</option>
-          <option value="red">Red</option>
-          <option value="green">Green</option>
-        </select>
-      </div>
-    </div>
-
-    <!-- SOURCE FIELDS -->
-    <div id="calcModalSourceFields" style="display:none">
-      <div class="fg"><label class="fl">TITLE / AUTHORS</label><input type="text" id="cms-title" class="fi" placeholder="e.g. AHA Hospital Statistics, 2004"></div>
-      <div class="fg"><label class="fl">DESCRIPTION / FINDINGS</label><textarea id="cms-desc" class="fi" rows="3" style="resize:vertical;height:70px" placeholder="What does this source cover?"></textarea></div>
-      <div class="fg"><label class="fl">JOURNAL / PUBLISHER</label><input type="text" id="cms-pub" class="fi" placeholder="e.g. N Engl J Med 2002; 346:1715"></div>
-      <div class="fg"><label class="fl">DOI / URL (optional)</label><input type="text" id="cms-doi" class="fi" placeholder="e.g. DOI: 10.1056/..."></div>
-      <div class="fg"><label class="fl">ACCENT COLOR</label>
-        <select id="cms-color" class="fs">
-          <option value="teal">Teal</option>
-          <option value="blue">Blue</option>
-          <option value="gold">Gold</option>
-          <option value="red">Red</option>
-        </select>
-      </div>
-    </div>
-
-    <div style="display:flex;gap:9px;margin-top:8px">
-      <button class="btn t" style="flex:1" onclick="saveCalcModal()">💾 Save</button>
-      <button class="btn n" style="flex:1" onclick="closeCalcModal()">Cancel</button>
-    </div>
-  </div>
-</div>
-
-<!-- REFERENCE MODAL -->
-<div class="modal" id="refModal">
-  <div class="mbox">
-    <div class="mh" id="refModalTitle">➕ Add Reference</div>
-    <div class="ms">Add a new reference or edit existing one</div>
-    <input type="hidden" id="refEditIdx">
-    <div class="fg"><label class="fl">TITLE / AUTHORS</label><input type="text" id="rfTitle" class="fi" placeholder="e.g. The Joint Commission (TJC)"></div>
-    <div class="fg"><label class="fl">DESCRIPTION</label><textarea id="rfDesc" class="fi" rows="3" style="resize:vertical;height:80px" placeholder="e.g. National Performance Goals 2026: Goal 12 — Nurse Staffing Standards."></textarea></div>
-    <div class="fg"><label class="fl">SOURCE / JOURNAL</label><input type="text" id="rfSource" class="fi" placeholder="e.g. AACN Newsroom, Oct 2025"></div>
-    <div class="fg"><label class="fl">YEAR</label><input type="text" id="rfYear" class="fi" placeholder="e.g. 2025" maxlength="10"></div>
-    <div class="fg"><label class="fl">URL (optional)</label><input type="url" id="rfURL" class="fi" placeholder="https://..."></div>
-    <div style="display:flex;gap:9px;margin-top:6px">
-      <button class="btn t" style="flex:1" onclick="saveRef()">💾 Save Reference</button>
-      <button class="btn n" style="flex:1" onclick="closeRefModal()">Cancel</button>
-    </div>
-  </div>
 </div>
 
 <!-- EDIT MODAL -->
@@ -965,9 +601,8 @@ tr:hover td{background:#FAFAFA}
   </div>
 </div>
 
-<div id="toast"></div>
-
 <script>
+
 // ════════════════════════════════════════════
 //  DATA
 // ════════════════════════════════════════════
@@ -2500,6 +2135,606 @@ switchCalcTab = function(tab, btn) {
     renderCalcSourceList();
   }
 };
+
+
+// ═══════════════════════════════════════════════════════
+//  STAFFING DETAIL — FTE / SHIFT / ANNUAL MANAGEMENT
+// ═══════════════════════════════════════════════════════
+
+// Default FTE roles
+var DEFAULT_FTE_ROLES = [
+  {role:'RN Full-time',  type:'rn',  ratio:0.74, ratioType:'ft', badge:'Full-time',  color:'b'},
+  {role:'RN Part-time',  type:'rn',  ratio:0.46, ratioType:'pt', badge:'Part-time',  color:'y'},
+  {role:'LPN Full-time', type:'lpn', ratio:0.12, ratioType:'ft', badge:'Full-time',  color:'b'},
+  {role:'LPN Part-time', type:'lpn', ratio:0.06, ratioType:'pt', badge:'Part-time',  color:'y'}
+];
+
+// Default shifts
+var DEFAULT_SHIFTS = [
+  {name:'Morning',   time:'07:00 - 15:00', pct:0.40, notes:'Highest activity'},
+  {name:'Afternoon', time:'15:00 - 23:00', pct:0.35, notes:'Moderate activity'},
+  {name:'Night',     time:'23:00 - 07:00', pct:0.25, notes:'Minimum coverage'}
+];
+
+// Default annual items
+var DEFAULT_ANNUAL = [
+  {label:'Total annual nurse hours needed', formula:'occ_beds x 24 x 365', unit:'hrs', notes:'Based on occupied beds'},
+  {label:'Hours per nurse per year',        formula:'work_days x shift_hrs', unit:'hrs', notes:'Working schedule'},
+  {label:'Raw FTE from hours',              formula:'annual_hrs / hrs_per_nurse', unit:'nurses', notes:'Simple calculation'},
+  {label:'AHA benchmark FTE',              formula:'grand_total_per_bed x beds', unit:'nurses', notes:'From size category'}
+];
+
+function loadFTERoles()  { var d=localStorage.getItem('mch_fte_roles');  return d?JSON.parse(d):JSON.parse(JSON.stringify(DEFAULT_FTE_ROLES)); }
+function loadShifts()    { var d=localStorage.getItem('mch_shifts');     return d?JSON.parse(d):JSON.parse(JSON.stringify(DEFAULT_SHIFTS)); }
+function loadAnnual()    { var d=localStorage.getItem('mch_annual');     return d?JSON.parse(d):JSON.parse(JSON.stringify(DEFAULT_ANNUAL)); }
+function saveFTERoles(v) { localStorage.setItem('mch_fte_roles', JSON.stringify(v)); }
+function saveShifts(v)   { localStorage.setItem('mch_shifts',    JSON.stringify(v)); }
+function saveAnnual(v)   { localStorage.setItem('mch_annual',    JSON.stringify(v)); }
+
+// ── Render Detail Tab ──
+function renderDetailTab() {
+  var ci   = parseInt((document.getElementById('c-cat')||{}).value)||0;
+  var b    = calcBench[ci]||calcBench[0];
+  var beds = parseFloat((document.getElementById('c-beds')||{}).value)||50;
+  var adm  = parseFloat((document.getElementById('c-adm')||{}).value)||3000;
+  var los  = parseFloat((document.getElementById('c-los')||{}).value)||5;
+  var shH  = parseFloat((document.getElementById('c-shift')||{}).value)||8;
+  var wD   = parseFloat((document.getElementById('c-wdays')||{}).value)||220;
+  var inv  = (adm/365)*los;
+  var occ  = Math.max(1, Math.round(inv));
+  var grandR = b.rnFt+b.rnPt+b.lpnFt+b.lpnPt;
+  var grandT = grandR*beds;
+  var nPerOcc = (beds>0&&b.util>0)?grandR/b.util:0;
+  var isAdmin = (role==='admin');
+
+  renderFTETable(b, beds, isAdmin);
+  renderShiftTable(occ, nPerOcc, isAdmin);
+  renderAnnualTable(occ, shH, wD, grandT, isAdmin);
+}
+
+function renderFTETable(b, beds, isAdmin) {
+  var el = document.getElementById('c-fteTable');
+  if (!el) return;
+  var roles = loadFTERoles();
+  var ratioMap = {rnFt: b.rnFt, rnPt: b.rnPt, lpnFt: b.lpnFt, lpnPt: b.lpnPt};
+  var grandR = b.rnFt+b.rnPt+b.lpnFt+b.lpnPt;
+  var nPerOcc = b.util>0?grandR/b.util:0;
+  var grandT = grandR*beds;
+
+  var html2 = roles.map(function(r, i) {
+    var ratio = r.ratio;
+    var fte   = Math.round(ratio * beds);
+    var badge = '<span class="pill '+r.color+'">'+escHTML(r.badge)+'</span>';
+    var del   = isAdmin ? '<button onclick="deleteFTERow('+i+')" style="border:none;background:var(--rlight);color:var(--red);border-radius:5px;padding:2px 7px;font-size:10px;cursor:pointer;margin-left:4px">🗑</button>' : '';
+    return '<tr><td>'+escHTML(r.role)+del+'</td><td>'+ratio.toFixed(2)+'</td><td><strong>'+fte+'</strong></td><td>'+badge+'</td></tr>';
+  }).join('');
+
+  // Grand total row
+  html2 += '<tr style="background:var(--bg)"><td><strong>Grand Total</strong></td><td>'+grandR.toFixed(2)+'</td><td><strong>'+Math.round(grandT)+'</strong></td><td><span class="pill g">'+nPerOcc.toFixed(2)+'/occ bed</span></td></tr>';
+
+  // Admin add row
+  if (isAdmin) {
+    html2 += '<tr><td colspan="4" style="padding:8px 11px">'
+      +'<button onclick="openDetailModal(&quot;fte&quot;,-1)" style="padding:5px 12px;background:var(--teal);color:#fff;border:none;border-radius:7px;font-size:12px;font-weight:700;cursor:pointer">+ Add Role</button>'
+      +'</td></tr>';
+  }
+  el.innerHTML = html2;
+}
+
+function renderShiftTable(occ, nPerOcc, isAdmin) {
+  var el = document.getElementById('c-shiftTable');
+  if (!el) return;
+  var shifts = loadShifts();
+  var totalPct = shifts.reduce(function(s,sh){ return s+sh.pct; }, 0);
+
+  var html2 = shifts.map(function(sh, i) {
+    var rn  = Math.ceil(occ * nPerOcc * 0.75 * sh.pct);
+    var lpn = Math.ceil(occ * nPerOcc * 0.25 * sh.pct);
+    var tot = rn + lpn;
+    var del = isAdmin ? '<button onclick="deleteShiftRow('+i+')" style="border:none;background:var(--rlight);color:var(--red);border-radius:5px;padding:2px 7px;font-size:10px;cursor:pointer;margin-left:4px">🗑</button>' : '';
+    return '<tr><td>'+escHTML(sh.name)+del+'</td><td style="color:var(--tx3)">'+escHTML(sh.time)+'</td><td>'+rn+'</td><td>'+lpn+'</td><td><strong>'+tot+'</strong></td></tr>';
+  }).join('');
+
+  var dRn  = shifts.reduce(function(s,sh){ return s+Math.ceil(occ*nPerOcc*0.75*sh.pct); }, 0);
+  var dLpn = shifts.reduce(function(s,sh){ return s+Math.ceil(occ*nPerOcc*0.25*sh.pct); }, 0);
+  html2 += '<tr style="background:var(--bg)"><td><strong>24-hr Total</strong></td><td>—</td><td><strong>'+dRn+'</strong></td><td><strong>'+dLpn+'</strong></td><td><strong>'+(dRn+dLpn)+'</strong></td></tr>';
+
+  if (isAdmin) {
+    html2 += '<tr><td colspan="5" style="padding:8px 11px">'
+      +'<button onclick="openDetailModal(&quot;shift&quot;,-1)" style="padding:5px 12px;background:var(--teal);color:#fff;border:none;border-radius:7px;font-size:12px;font-weight:700;cursor:pointer">+ Add Shift</button>'
+      +'</td></tr>';
+  }
+  el.innerHTML = html2;
+}
+
+function renderAnnualTable(occ, shH, wD, grandT, isAdmin) {
+  var el = document.getElementById('c-annualTable');
+  if (!el) return;
+  var items = loadAnnual();
+  var annHrs = occ*24*365;
+  var hpn    = wD*shH;
+  var rawFTE = hpn>0?annHrs/hpn:0;
+  var vals   = [annHrs.toLocaleString()+' hrs', hpn.toFixed(0)+' hrs', rawFTE.toFixed(0)+' nurses', Math.round(grandT)+' nurses'];
+
+  var html2 = items.map(function(it, i) {
+    var val = vals[i] || it.formula;
+    var del = isAdmin ? '<button onclick="deleteAnnualRow('+i+')" style="border:none;background:var(--rlight);color:var(--red);border-radius:5px;padding:2px 7px;font-size:10px;cursor:pointer;margin-left:4px">🗑</button>' : '';
+    var rowStyle = i===items.length-1 ? ' style="background:var(--bg)"' : '';
+    return '<tr'+rowStyle+'><td>'+(i===items.length-1?'<strong>':'')+escHTML(it.label)+del+(i===items.length-1?'</strong>':'')+'</td><td><strong>'+val+'</strong></td><td style="color:var(--tx3)">'+escHTML(it.notes)+'</td></tr>';
+  }).join('');
+
+  if (isAdmin) {
+    html2 += '<tr><td colspan="3" style="padding:8px 11px">'
+      +'<button onclick="openDetailModal(&quot;annual&quot;,-1)" style="padding:5px 12px;background:var(--teal);color:#fff;border:none;border-radius:7px;font-size:12px;font-weight:700;cursor:pointer">+ Add Row</button>'
+      +'</td></tr>';
+  }
+  el.innerHTML = html2;
+}
+
+// ── Delete helpers ──
+function deleteFTERow(idx) {
+  if (!confirm('Delete this role?')) return;
+  var r = loadFTERoles(); r.splice(idx,1); saveFTERoles(r);
+  renderDetailTab(); toast('\u{1F5D1} Role deleted');
+}
+function deleteShiftRow(idx) {
+  if (!confirm('Delete this shift?')) return;
+  var r = loadShifts(); r.splice(idx,1); saveShifts(r);
+  renderDetailTab(); toast('\u{1F5D1} Shift deleted');
+}
+function deleteAnnualRow(idx) {
+  if (!confirm('Delete this row?')) return;
+  var r = loadAnnual(); r.splice(idx,1); saveAnnual(r);
+  renderDetailTab(); toast('\u{1F5D1} Row deleted');
+}
+
+// ── Open detail modal ──
+function openDetailModal(type, idx) {
+  document.getElementById('detailModalType').value = type;
+  document.getElementById('detailModalIdx').value  = idx >= 0 ? idx : '';
+  var isEdit = idx >= 0;
+
+  // Show/hide field groups
+  document.getElementById('dmFTEFields').style.display    = type==='fte'    ? 'block' : 'none';
+  document.getElementById('dmShiftFields').style.display  = type==='shift'  ? 'block' : 'none';
+  document.getElementById('dmAnnualFields').style.display = type==='annual' ? 'block' : 'none';
+
+  var titles = {fte: isEdit?'\u270F\uFE0F Edit Role':'+ Add FTE Role', shift: isEdit?'\u270F\uFE0F Edit Shift':'+ Add Shift', annual: isEdit?'\u270F\uFE0F Edit Row':'+ Add Annual Row'};
+  document.getElementById('detailModalTitle').textContent = titles[type]||'Edit';
+
+  if (isEdit) {
+    if (type==='fte') {
+      var r = loadFTERoles()[idx]||{};
+      document.getElementById('dm-fte-role').value  = r.role||'';
+      document.getElementById('dm-fte-type').value  = r.type||'rn';
+      document.getElementById('dm-fte-ratio').value = r.ratio||0;
+      document.getElementById('dm-fte-badge').value = r.badge||'';
+      document.getElementById('dm-fte-color').value = r.color||'b';
+    } else if (type==='shift') {
+      var sh = loadShifts()[idx]||{};
+      document.getElementById('dm-sh-name').value  = sh.name||'';
+      document.getElementById('dm-sh-time').value  = sh.time||'';
+      document.getElementById('dm-sh-pct').value   = Math.round((sh.pct||0)*100);
+      document.getElementById('dm-sh-notes').value = sh.notes||'';
+    } else {
+      var an = loadAnnual()[idx]||{};
+      document.getElementById('dm-an-label').value   = an.label||'';
+      document.getElementById('dm-an-formula').value = an.formula||'';
+      document.getElementById('dm-an-notes').value   = an.notes||'';
+    }
+  } else {
+    // Clear fields
+    ['dm-fte-role','dm-fte-ratio','dm-fte-badge','dm-sh-name','dm-sh-time','dm-sh-pct','dm-sh-notes','dm-an-label','dm-an-formula','dm-an-notes'].forEach(function(id){
+      var el=document.getElementById(id); if(el) el.value='';
+    });
+    var dm_fte_ratio = document.getElementById('dm-fte-ratio');
+    if (dm_fte_ratio) dm_fte_ratio.value = '0.50';
+    var dm_sh_pct = document.getElementById('dm-sh-pct');
+    if (dm_sh_pct) dm_sh_pct.value = '33';
+  }
+  document.getElementById('detailModal').classList.add('open');
+}
+
+function closeDetailModal() {
+  document.getElementById('detailModal').classList.remove('open');
+}
+
+function saveDetailModal() {
+  var type  = document.getElementById('detailModalType').value;
+  var idxS  = document.getElementById('detailModalIdx').value;
+  var idx   = idxS !== '' ? parseInt(idxS) : -1;
+  var isEdit = idx >= 0;
+
+  if (type === 'fte') {
+    var role2  = document.getElementById('dm-fte-role').value.trim();
+    var type2  = document.getElementById('dm-fte-type').value;
+    var ratio  = parseFloat(document.getElementById('dm-fte-ratio').value)||0;
+    var badge  = document.getElementById('dm-fte-badge').value.trim()||type2.toUpperCase();
+    var color  = document.getElementById('dm-fte-color').value;
+    if (!role2) { toast('\u26A0 Role name required'); return; }
+    var list = loadFTERoles();
+    var item = {role:role2, type:type2, ratio:ratio, ratioType:'ft', badge:badge, color:color};
+    if (isEdit) { list[idx]=item; toast('\u2705 Role updated'); } else { list.push(item); toast('\u2705 Role added'); }
+    saveFTERoles(list);
+  } else if (type === 'shift') {
+    var name  = document.getElementById('dm-sh-name').value.trim();
+    var time  = document.getElementById('dm-sh-time').value.trim();
+    var pct   = parseFloat(document.getElementById('dm-sh-pct').value)||0;
+    var notes = document.getElementById('dm-sh-notes').value.trim();
+    if (!name) { toast('\u26A0 Shift name required'); return; }
+    var list2 = loadShifts();
+    var item2 = {name:name, time:time, pct:pct/100, notes:notes};
+    if (isEdit) { list2[idx]=item2; toast('\u2705 Shift updated'); } else { list2.push(item2); toast('\u2705 Shift added'); }
+    saveShifts(list2);
+  } else {
+    var label   = document.getElementById('dm-an-label').value.trim();
+    var formula = document.getElementById('dm-an-formula').value.trim();
+    var notes2  = document.getElementById('dm-an-notes').value.trim();
+    if (!label) { toast('\u26A0 Label required'); return; }
+    var list3 = loadAnnual();
+    var item3 = {label:label, formula:formula, notes:notes2};
+    if (isEdit) { list3[idx]=item3; toast('\u2705 Row updated'); } else { list3.push(item3); toast('\u2705 Row added'); }
+    saveAnnual(list3);
+  }
+  closeDetailModal();
+  renderDetailTab();
+}
+
+// Safe modal backdrop close
+(function(){
+  var m = document.getElementById('detailModal');
+  if (m) m.onclick = function(e) { if (e.target===this) closeDetailModal(); };
+}());
+
+// Patch switchCalcTab to call renderDetailTab when 'detail' is shown
+
+
+
+// ════════════════════════════════════════════
+//  GOOGLE SHEETS SYNC
+//  Sheet ID: 1ZhzV8CV9Cn9Tp8ihPuaVV1DvcYpM7ZdfFYG4emu4c7Y
+//  Sheet Name: Productivity
+// ════════════════════════════════════════════
+var SHEET_ID   = '1ZhzV8CV9Cn9Tp8ihPuaVV1DvcYpM7ZdfFYG4emu4c7Y';
+var SHEET_NAME = 'Productivity';
+
+// ─ Google Apps Script Web App URL ─
+// Deploy this script as a Web App in the Google Sheet to enable sync.
+// The URL is stored in localStorage after first setup.
+var APPS_SCRIPT_URL = localStorage.getItem('mch_gas_url') || '';
+
+function syncToSheets() {
+  var btn = document.getElementById('syncBtn');
+  if (!APPS_SCRIPT_URL) {
+    // Show setup dialog
+    openSyncSetup();
+    return;
+  }
+  btn.classList.add('syncing');
+  btn.innerHTML = '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a9 9 0 1 1-6.219-8.56"/></svg> Syncing...';
+
+  var data = buildSyncPayload();
+  fetch(APPS_SCRIPT_URL, {
+    method: 'POST',
+    mode: 'no-cors',
+    headers: {'Content-Type': 'text/plain'},
+    body: JSON.stringify(data)
+  }).then(function() {
+    btn.classList.remove('syncing');
+    btn.classList.add('done');
+    btn.innerHTML = '✅ Synced!';
+    toast('✅ Data synced to Google Sheets — Productivity tab');
+    setTimeout(function(){
+      btn.classList.remove('done');
+      btn.innerHTML = '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><polyline points="23 20 23 14 17 14"/><path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4-4.64 4.36A9 9 0 0 1 3.51 15"/></svg> Sync to Sheets';
+    }, 4000);
+  }).catch(function(err) {
+    btn.classList.remove('syncing');
+    btn.innerHTML = '🔄 Sync to Sheets';
+    toast('⚠ Sync failed — check Apps Script URL in Admin Panel');
+    console.error('Sync error:', err);
+  });
+}
+
+function buildSyncPayload() {
+  var data = filtered();
+  return {
+    sheetId:   SHEET_ID,
+    sheetName: SHEET_NAME,
+    action:    'append',
+    headers:   ['Year','Month','Day','Department','KPI','Cases','GrandHours',
+                 'HOD_Normal','HOD_OT','HOD_NP',
+                 'RN_Normal','RN_OT','RN_NP',
+                 'PN_Normal','PN_OT','PN_NP',
+                 'AD_Normal','AD_OT','AD_NP',
+                 'Normal','OT','NonProd','GrandNPT'],
+    rows: data.map(function(r) {
+      return [r.Year, r.Month, r.Day, r.Department, r.KPI, r.Cases, r.GrandHours,
+              r.HOD_Normal||0, r.HOD_OT||0, r.HOD_NP||0,
+              r.RN_Normal||0,  r.RN_OT||0,  r.RN_NP||0,
+              r.PN_Normal||0,  r.PN_OT||0,  r.PN_NP||0,
+              r.AD_Normal||0,  r.AD_OT||0,  r.AD_NP||0,
+              r.Normal||0, r.OT||0, r.NonProd||0, r.GrandNPT||0];
+    }),
+    localRecs: localRecs.map(function(r) {
+      return [r.Year, r.Month, r.Day, r.Department, r.KPI||dKPI(r.Department),
+              r.Cases, r.GrandHours, r.HOD_Normal||0, r.HOD_OT||0, r.HOD_NP||0,
+              r.RN_Normal||0, r.RN_OT||0, r.RN_NP||0,
+              r.PN_Normal||0, r.PN_OT||0, r.PN_NP||0,
+              r.AD_Normal||0, r.AD_OT||0, r.AD_NP||0,
+              r.Normal||0, r.OT||0, r.NonProd||0, r.GrandNPT||0];
+    }),
+    timestamp: new Date().toISOString(),
+    syncedBy:  role
+  };
+}
+
+// ─ Sync Setup Modal ─
+function openSyncSetup() {
+  document.getElementById('syncSetupModal').classList.add('open');
+}
+function closeSyncSetup() {
+  document.getElementById('syncSetupModal').classList.remove('open');
+}
+function saveSyncURL() {
+  var url = document.getElementById('gasUrl').value.trim();
+  if (!url || !url.startsWith('https://script.google.com')) {
+    toast('⚠ Please enter a valid Google Apps Script URL');
+    return;
+  }
+  APPS_SCRIPT_URL = url;
+  localStorage.setItem('mch_gas_url', url);
+  closeSyncSetup();
+  toast('✅ Apps Script URL saved');
+  syncToSheets();
+}
+
+// ─ Auto-download sync as CSV (fallback) ─
+function downloadForSheets() {
+  var data = localRecs.length > 0 ? localRecs : filtered().slice(0, 100);
+  var cols = ['Year','Month','Day','Department','KPI','Cases','GrandHours','Normal','OT','NonProd','GrandNPT'];
+  var csv = cols.join(',') + '\n';
+  csv += data.map(function(r){
+    return cols.map(function(c){ return r[c]||0; }).join(',');
+  }).join('\n');
+  var a = document.createElement('a');
+  a.href = URL.createObjectURL(new Blob([csv],{type:'text/csv'}));
+  a.download = 'MCH_Productivity_ForSheets.csv';
+  a.click();
+  toast('📥 CSV downloaded — import into Google Sheets manually');
+}
+
+(function(){
+  var m = document.getElementById('syncSetupModal');
+  if (m) m.onclick = function(e){ if(e.target===this) closeSyncSetup(); };
+}());
+
+
+// ─ Apps Script Code Generator ─
+var GAS_CODE = `// MCH Nurse Productivity — Google Sheets Sync Handler
+// Deploy as Web App: Execute as Me, Access: Anyone
+// Sheet ID: 1ZhzV8CV9Cn9Tp8ihPuaVV1DvcYpM7ZdfFYG4emu4c7Y
+// Sheet Tab: Productivity
+
+var SHEET_ID   = '1ZhzV8CV9Cn9Tp8ihPuaVV1DvcYpM7ZdfFYG4emu4c7Y';
+var SHEET_NAME = 'Productivity';
+
+function doPost(e) {
+  try {
+    var payload = JSON.parse(e.postData.contents);
+    var ss      = SpreadsheetApp.openById(SHEET_ID);
+    var sheet   = ss.getSheetByName(SHEET_NAME);
+    if (!sheet) {
+      sheet = ss.insertSheet(SHEET_NAME);
+    }
+
+    // Add headers if sheet is empty
+    if (sheet.getLastRow() === 0) {
+      var headers = payload.headers || ['Year','Month','Day','Department','KPI',
+        'Cases','GrandHours','HOD_Normal','HOD_OT','HOD_NP',
+        'RN_Normal','RN_OT','RN_NP','PN_Normal','PN_OT','PN_NP',
+        'AD_Normal','AD_OT','AD_NP','Normal','OT','NonProd','GrandNPT',
+        'SyncedAt','SyncedBy'];
+      sheet.appendRow(headers);
+      sheet.getRange(1, 1, 1, headers.length)
+           .setBackground('#00897B')
+           .setFontColor('#FFFFFF')
+           .setFontWeight('bold');
+    }
+
+    // Append local records (manual entries from staff)
+    var rows = payload.localRecs || payload.rows || [];
+    var ts   = payload.timestamp || new Date().toISOString();
+    var by   = payload.syncedBy  || 'system';
+
+    rows.forEach(function(row) {
+      sheet.appendRow(row.concat([ts, by]));
+    });
+
+    return ContentService
+      .createTextOutput(JSON.stringify({status:'ok', rowsAdded: rows.length}))
+      .setMimeType(ContentService.MimeType.JSON);
+
+  } catch(err) {
+    return ContentService
+      .createTextOutput(JSON.stringify({status:'error', message: err.toString()}))
+      .setMimeType(ContentService.MimeType.JSON);
+  }
+}
+
+function doGet(e) {
+  return ContentService
+    .createTextOutput(JSON.stringify({status:'MCH Sync Active', sheet: SHEET_NAME}))
+    .setMimeType(ContentService.MimeType.JSON);
+}`;
+
+function showGASCode() {
+  var box = document.getElementById('gasCodeBox');
+  var txt = document.getElementById('gasCodeText');
+  if (box.style.display === 'none') {
+    box.style.display = 'block';
+    if (txt) txt.textContent = GAS_CODE;
+  } else {
+    box.style.display = 'none';
+  }
+}
+
+function copyGASCode() {
+  var btn = document.getElementById('copyGasBtn');
+  navigator.clipboard.writeText(GAS_CODE).then(function(){
+    if (btn) { btn.textContent = '✅ Copied!'; setTimeout(function(){ btn.textContent = '📋 Copy Code'; }, 2000); }
+    toast('✅ Apps Script code copied to clipboard');
+  }).catch(function(){
+    // Fallback
+    var ta = document.createElement('textarea');
+    ta.value = GAS_CODE;
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand('copy');
+    document.body.removeChild(ta);
+    toast('✅ Code copied');
+  });
+}
+
+// Update sync button state
+var _origSyncToSheets = syncToSheets;
+syncToSheets = function() {
+  var btn = document.getElementById('syncBtn');
+  if (btn) {
+    btn.style.background = '#F9A825';
+    btn.style.color = '#1A1A2E';
+    btn.innerHTML = '⏳ Syncing...';
+  }
+  _origSyncToSheets();
+};
 </script>
+
+<!-- SYNC SETUP MODAL -->
+<div class="modal" id="syncSetupModal">
+  <div class="mbox" style="max-width:540px">
+    <div class="mh">🔗 Connect to Google Sheets</div>
+    <div class="ms">Link this system to your Google Sheet for automatic sync</div>
+
+    <div style="background:var(--tlight);border-radius:10px;padding:14px 16px;margin-bottom:18px;font-size:13px;color:var(--tdark)">
+      <strong>📋 Sheet Details:</strong><br>
+      Sheet ID: <code style="font-size:11px;background:rgba(0,0,0,.08);padding:2px 6px;border-radius:4px">1ZhzV8CV9Cn9Tp8ihPuaVV1DvcYpM7ZdfFYG4emu4c7Y</code><br>
+      Sheet Tab: <strong>Productivity</strong>
+    </div>
+
+    <div style="margin-bottom:18px">
+      <div style="font-size:13px;font-weight:700;color:var(--tx);margin-bottom:10px">📌 Setup Steps:</div>
+      <div style="display:flex;flex-direction:column;gap:8px;font-size:13px;color:var(--tx2)">
+        <div style="display:flex;gap:10px"><span style="background:var(--teal);color:#fff;border-radius:50%;width:20px;height:20px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0">1</span><span>Open your Google Sheet → Extensions → Apps Script</span></div>
+        <div style="display:flex;gap:10px"><span style="background:var(--teal);color:#fff;border-radius:50%;width:20px;height:20px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0">2</span><span>Paste the Apps Script code (copy from Admin Panel → Sheets Sync)</span></div>
+        <div style="display:flex;gap:10px"><span style="background:var(--teal);color:#fff;border-radius:50%;width:20px;height:20px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0">3</span><span>Deploy → New Deployment → Web App → Execute as Me → Anyone</span></div>
+        <div style="display:flex;gap:10px"><span style="background:var(--teal);color:#fff;border-radius:50%;width:20px;height:20px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0">4</span><span>Copy the Web App URL and paste below</span></div>
+      </div>
+    </div>
+
+    <div class="fg"><label class="fl">GOOGLE APPS SCRIPT WEB APP URL</label>
+      <input type="url" id="gasUrl" class="fi" placeholder="https://script.google.com/macros/s/.../exec" style="font-size:12px">
+    </div>
+    <div style="font-size:11px;color:var(--tx3);margin-top:-6px;margin-bottom:14px">Paste the URL from Step 4 above</div>
+
+    <div style="margin-bottom:14px;padding:12px 14px;border-radius:9px;background:var(--glight);font-size:12px;color:#5D4037">
+      💡 <strong>No Apps Script setup?</strong> Use the <button onclick="closeSyncSetup();downloadForSheets()" style="border:none;background:var(--gold);color:var(--tx);border-radius:6px;padding:3px 10px;font-size:11px;font-weight:700;cursor:pointer">📥 Download CSV</button> option instead to manually import data.
+    </div>
+
+    <div style="display:flex;gap:9px">
+      <button class="btn t" style="flex:1" onclick="saveSyncURL()">🔗 Connect & Sync Now</button>
+      <button class="btn n" style="flex:1" onclick="closeSyncSetup()">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<!-- DETAIL MODAL (FTE / SHIFT / ANNUAL) -->
+<div class="modal" id="detailModal">
+  <div class="mbox">
+    <div class="mh" id="detailModalTitle">Add Item</div>
+    <div class="ms">Fill in the details below</div>
+    <input type="hidden" id="detailModalType"><input type="hidden" id="detailModalIdx">
+    <!-- FTE Fields -->
+    <div id="dmFTEFields">
+      <div class="fg"><label class="fl">ROLE NAME</label><input type="text" id="dm-fte-role" class="fi" placeholder="e.g. RN Full-time"></div>
+      <div class="fg"><label class="fl">TYPE</label><select id="dm-fte-type" class="fs"><option value="rn">RN (Registered Nurse)</option><option value="lpn">LPN (Licensed Practical)</option><option value="other">Other</option></select></div>
+      <div class="fg"><label class="fl">RATIO PER BED</label><input type="number" id="dm-fte-ratio" class="fi" step="0.01" min="0" placeholder="e.g. 0.74"></div>
+      <div class="fg"><label class="fl">BADGE LABEL</label><input type="text" id="dm-fte-badge" class="fi" placeholder="e.g. Full-time"></div>
+      <div class="fg"><label class="fl">BADGE COLOR</label><select id="dm-fte-color" class="fs"><option value="b">Blue (Full-time)</option><option value="y">Yellow (Part-time)</option><option value="g">Green</option><option value="r">Red</option></select></div>
+    </div>
+    <!-- Shift Fields -->
+    <div id="dmShiftFields" style="display:none">
+      <div class="fg"><label class="fl">SHIFT NAME</label><input type="text" id="dm-sh-name" class="fi" placeholder="e.g. Morning"></div>
+      <div class="fg"><label class="fl">TIME RANGE</label><input type="text" id="dm-sh-time" class="fi" placeholder="e.g. 07:00 - 15:00"></div>
+      <div class="fg"><label class="fl">% OF DAILY NURSES</label><input type="number" id="dm-sh-pct" class="fi" min="1" max="99" placeholder="e.g. 40"></div>
+      <div class="fg"><label class="fl">NOTES</label><input type="text" id="dm-sh-notes" class="fi" placeholder="e.g. Highest activity"></div>
+    </div>
+    <!-- Annual Fields -->
+    <div id="dmAnnualFields" style="display:none">
+      <div class="fg"><label class="fl">LABEL</label><input type="text" id="dm-an-label" class="fi" placeholder="e.g. Total annual hours"></div>
+      <div class="fg"><label class="fl">FORMULA / NOTES</label><input type="text" id="dm-an-formula" class="fi" placeholder="e.g. occ_beds x 24 x 365"></div>
+      <div class="fg"><label class="fl">ADDITIONAL NOTES</label><input type="text" id="dm-an-notes" class="fi" placeholder="e.g. Based on occupied beds"></div>
+    </div>
+    <div style="display:flex;gap:9px;margin-top:10px">
+      <button class="btn t" style="flex:1" onclick="saveDetailModal()">💾 Save</button>
+      <button class="btn n" style="flex:1" onclick="closeDetailModal()">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<!-- CALC FORMULA/SOURCE MODAL -->
+<div class="modal" id="calcModal">
+  <div class="mbox">
+    <div class="mh" id="calcModalTitle">Add Item</div><div class="ms" id="calcModalSub">Fill in details</div>
+    <input type="hidden" id="calcModalType"><input type="hidden" id="calcModalIdx">
+    <div id="calcModalFormulaFields">
+      <div class="fg"><label class="fl">FORMULA NAME</label><input type="text" id="cmf-name" class="fi" placeholder="e.g. Bed Utilization Rate"></div>
+      <div class="fg"><label class="fl">EXPRESSION</label><input type="text" id="cmf-expr" class="fi" placeholder="e.g. R = Adm/365 × LOS / Beds" style="font-family:monospace"></div>
+      <div class="fg"><label class="fl">EXPLANATION</label><textarea id="cmf-desc" class="fi" rows="2" style="resize:vertical;height:60px"></textarea></div>
+      <div class="fg"><label class="fl">COLOR</label><select id="cmf-color" class="fs"><option value="teal">Teal</option><option value="blue">Blue</option><option value="gold">Gold</option><option value="red">Red</option><option value="green">Green</option></select></div>
+    </div>
+    <div id="calcModalSourceFields" style="display:none">
+      <div class="fg"><label class="fl">TITLE / AUTHORS</label><input type="text" id="cms-title" class="fi"></div>
+      <div class="fg"><label class="fl">DESCRIPTION</label><textarea id="cms-desc" class="fi" rows="2" style="resize:vertical;height:60px"></textarea></div>
+      <div class="fg"><label class="fl">JOURNAL / PUBLISHER</label><input type="text" id="cms-pub" class="fi"></div>
+      <div class="fg"><label class="fl">DOI / URL</label><input type="text" id="cms-doi" class="fi"></div>
+      <div class="fg"><label class="fl">COLOR</label><select id="cms-color" class="fs"><option value="teal">Teal</option><option value="blue">Blue</option><option value="gold">Gold</option><option value="red">Red</option></select></div>
+    </div>
+    <div style="display:flex;gap:9px;margin-top:8px"><button class="btn t" style="flex:1" onclick="saveCalcModal()">💾 Save</button><button class="btn n" style="flex:1" onclick="closeCalcModal()">Cancel</button></div>
+  </div>
+</div>
+
+<!-- REFERENCE MODAL -->
+<div class="modal" id="refModal">
+  <div class="mbox">
+    <div class="mh" id="refModalTitle">Add Reference</div><div class="ms">Add or edit a reference entry</div>
+    <input type="hidden" id="refEditIdx">
+    <div class="fg"><label class="fl">TITLE / AUTHORS</label><input type="text" id="rfTitle" class="fi" placeholder="e.g. The Joint Commission (TJC)"></div>
+    <div class="fg"><label class="fl">DESCRIPTION</label><textarea id="rfDesc" class="fi" rows="3" style="resize:vertical;height:80px"></textarea></div>
+    <div class="fg"><label class="fl">SOURCE / JOURNAL</label><input type="text" id="rfSource" class="fi" placeholder="e.g. AACN Newsroom, Oct 2025"></div>
+    <div class="fg"><label class="fl">YEAR</label><input type="text" id="rfYear" class="fi" placeholder="e.g. 2025" maxlength="10"></div>
+    <div class="fg"><label class="fl">URL (optional)</label><input type="url" id="rfURL" class="fi" placeholder="https://..."></div>
+    <div style="display:flex;gap:9px;margin-top:6px"><button class="btn t" style="flex:1" onclick="saveRef()">💾 Save</button><button class="btn n" style="flex:1" onclick="closeRefModal()">Cancel</button></div>
+  </div>
+</div>
+
+<!-- EDIT RECORD MODAL -->
+<div class="modal" id="editModal">
+  <div class="mbox">
+    <div class="mh">✏️ Edit Record</div><div class="ms">Modify record details</div>
+    <input type="hidden" id="editIdx">
+    <div class="fg"><label class="fl">DATE</label><input type="date" id="eDate" class="fi"></div>
+    <div class="fg"><label class="fl">DEPARTMENT</label><select id="eDept" class="fs"></select></div>
+    <div class="fg"><label class="fl">CASES</label><input type="number" id="eCases" class="fi" min="0" oninput="prevEditNPT()"></div>
+    <div class="fg"><label class="fl">GRAND TOTAL HOURS</label><input type="number" id="eHours" class="fi" min="0" step="0.5" oninput="prevEditNPT()"></div>
+    <div class="fg"><label class="fl">NORMAL HOURS</label><input type="number" id="eNormal" class="fi" min="0"></div>
+    <div class="fg"><label class="fl">OT HOURS</label><input type="number" id="eOT" class="fi" min="0"></div>
+    <div class="fg"><label class="fl">NON-PRODUCTIVE HOURS</label><input type="number" id="eNP" class="fi" min="0"></div>
+    <div class="nptprev" id="ePrev"><div style="font-size:11px;font-weight:700;color:var(--tdark)">GrandNPT Preview</div><div style="font-family:Syne,sans-serif;font-size:20px;font-weight:800;color:var(--tdark)" id="ePrevVal">—</div></div>
+    <div style="display:flex;gap:9px;margin-top:6px"><button class="btn t" style="flex:1" onclick="saveEdit()">💾 Save</button><button class="btn n" style="flex:1" onclick="closeModal()">Cancel</button></div>
+  </div>
+</div>
+
+<div id="toast"></div>
+
 </body>
 </html>
